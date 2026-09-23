@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos y Condiciones | CompraMás | Arandu Labs</title>
+    <title>Términos y Condiciones | Terms of Service | Termos e Condições — CompraMás</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo.png">
-    <meta name="description" content="Términos y condiciones oficiales para la aplicación CompraMás, un servicio con publicidad proporcionado por Arandu Labs LLC.">
-    <!-- Google Fonts: Inter -->
+    <meta name="description" content="Términos y condiciones de uso para la aplicación CompraMás, desarrollada por Arandu Labs LLC.">
+    <!-- Google Fonts: Inter & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,277 +18,233 @@
             theme: {
                 extend: {
                     colors: {
+                        dark: '#0a0a0b',
+                        darkCard: '#111827',
+                        brandGreen: '#10b981',
+                        brandCyan: '#06b6d4',
+                        brandBlue: '#3b82f6',
                         legalPrimary: '#0f172a',
                         legalSecondary: '#475569',
-                        brandGreen: '#10b981',
-                        brandBlue: '#2563eb',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
                     },
                 }
             }
         }
     </script>
     <style>
-        body {
-            background-color: #ffffff;
-            color: #1e293b;
-        }
-        .legal-container {
-            max-width: 840px;
-            margin: 0 auto;
-            padding: 7rem 2rem 5rem 2rem;
-        }
-        .legal-section {
-            margin-bottom: 3.5rem;
-        }
+        body { background-color: #ffffff; color: #1e293b; }
+        .legal-container { max-width: 840px; margin: 0 auto; padding: 7rem 2rem 5rem 2rem; }
+        .legal-section { margin-bottom: 2.75rem; }
         .legal-section h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #0f172a;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 1.25rem;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 0.5rem;
+            font-size: 1.2rem; font-weight: 700; color: #0f172a; text-transform: uppercase;
+            letter-spacing: 0.08em; margin-bottom: 1rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;
         }
-        .legal-section p {
-            font-size: 0.975rem;
-            line-height: 1.8;
-            color: #475569;
-            margin-bottom: 1.15rem;
-            text-align: justify;
-        }
-        .legal-section ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 1.25rem;
-        }
-        .legal-section li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #475569;
-        }
-        .legal-section li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-weight: bold;
-        }
-        .highlight-box {
-            background-color: #f8fafc;
-            padding: 1.75rem;
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
-            margin-bottom: 1.75rem;
-        }
-        .partner-link {
-            color: #2563eb;
-            font-weight: 500;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            transition: all 0.2s;
-            font-size: 0.9rem;
-        }
-        .partner-link:hover {
-            color: #1d4ed8;
-            text-decoration-color: transparent;
-        }
+        .legal-section p { font-size: 0.95rem; line-height: 1.75; color: #475569; margin-bottom: 1rem; text-align: justify; }
+        .legal-section ul { list-style-type: none; padding-left: 0; margin-bottom: 1rem; }
+        .legal-section li { position: relative; padding-left: 1.5rem; margin-bottom: 0.65rem; font-size: 0.925rem; line-height: 1.6; color: #475569; }
+        .legal-section li::before { content: "•"; position: absolute; left: 0; color: #10b981; font-weight: bold; }
+        .highlight-box { background-color: #f8fafc; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e2e8f0; margin-bottom: 1.5rem; }
+        .partner-link { color: #2563eb; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; font-size: 0.875rem; }
+        .partner-link:hover { color: #1d4ed8; }
     </style>
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased flex flex-col justify-between min-h-screen">
 
-    <!-- Navigation Header -->
-    <nav class="fixed w-full z-50 top-0 left-0 bg-white/90 backdrop-blur-md border-b border-slate-100">
+    <!-- Navigation Header (Matching firmapp-web / prisma-web aesthetic) -->
+    <header class="fixed w-full z-50 top-0 left-0 border-b border-slate-200 bg-white/90 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <a href="https://arandulabs.dev" class="flex items-center gap-2.5 group">
-                    <img src="assets/arandulabs_logo.png" alt="Arandu Labs Logo" class="w-7 h-7 object-contain">
-                    <span class="text-lg font-bold tracking-tight text-legalPrimary">Arandu Labs</span>
-                </a>
-                <span class="text-slate-300">/</span>
-                <a href="index.html" class="flex items-center gap-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700">
-                    <img src="assets/logo.png" alt="CompraMás" class="w-6 h-6 object-contain rounded-md">
-                    <span>CompraMás</span>
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="assets/logo.png" alt="CompraMás" class="w-10 h-10 object-contain rounded-xl">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline">
+                        <span class="text-xl sm:text-2xl font-outfit font-black tracking-tight text-slate-900 group-hover:text-emerald-600 transition-colors">CompraMás</span>
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-emerald-600 font-bold sm:ml-2">by Arandu Labs</span>
+                    </div>
                 </a>
             </div>
-            <div class="flex gap-4 items-center">
-                <a href="privacy.html" class="text-xs font-semibold text-slate-500 hover:text-legalPrimary transition-colors">Privacidad</a>
-                <a href="faq.html" class="text-xs font-semibold text-slate-500 hover:text-legalPrimary transition-colors">FAQ</a>
-                <a href="delete-account/" class="text-xs font-semibold text-slate-500 hover:text-red-600 transition-colors">Eliminar Cuenta</a>
-                <a href="index.html" class="text-xs font-bold bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all">
-                    Volver a la Web
+
+            <!-- Language Switcher & Home link -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="flex items-center gap-1 bg-slate-100 border border-slate-200 p-1 rounded-full">
+                    <button id="btn-es" onclick="switchLanguage('es')" class="px-2.5 py-1 rounded-full text-xs font-bold transition-all bg-emerald-600 text-white">
+                        ES
+                    </button>
+                    <button id="btn-en" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded-full text-xs font-bold transition-all text-slate-600 hover:text-slate-900">
+                        EN
+                    </button>
+                    <button id="btn-pt" onclick="switchLanguage('pt')" class="px-2.5 py-1 rounded-full text-xs font-bold transition-all text-slate-600 hover:text-slate-900">
+                        PT
+                    </button>
+                </div>
+                <a href="https://arandulabs.dev" target="_blank" rel="noopener" class="flex items-center gap-2 px-3.5 py-1.5 bg-slate-50 border border-slate-200 hover:border-emerald-600 text-slate-800 font-bold rounded-xl transition-all text-xs">
+                    <img src="assets/arandulabs_logo.png" alt="Arandu Labs" class="w-4 h-4 object-contain">
+                    <span class="hidden sm:inline uppercase tracking-wider text-[11px]">Arandu Labs</span>
                 </a>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Legal Content -->
-    <main class="legal-container">
-        
-        <header class="mb-14">
-            <h1 class="text-4xl sm:text-5xl font-black text-legalPrimary mb-4 tracking-tight">Términos y Condiciones</h1>
-            <p class="text-legalSecondary text-lg font-light leading-relaxed">
-                Términos y condiciones específicos para la aplicación móvil <span class="font-bold text-legalPrimary italic">CompraMás</span>.
-            </p>
-            <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-legalSecondary">
-                <span><strong class="text-slate-800">Fecha de Vigencia:</strong> 23 de septiembre de 2026</span>
-                <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
-                <span><strong class="text-slate-800">Proveedor:</strong> Arandu Labs LLC</span>
-            </div>
-            <div class="w-20 h-1 bg-emerald-500 mt-6 rounded-full"></div>
-        </header>
+    <!-- Main Content Area -->
+    <main class="legal-container flex-grow">
 
-        <!-- Translation Note -->
-        <div class="highlight-box bg-amber-50/50 border border-amber-200 p-6 rounded-2xl mb-8">
-            <p class="text-xs font-bold text-amber-700 uppercase tracking-widest mb-2 flex items-center gap-2">
-                <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                Nota de Traducción y Prevalencia
-            </p>
-            <p class="text-xs sm:text-sm leading-relaxed text-slate-600 !mb-0 text-justify">
-                Por tratarse de un documento legal de una entidad formalmente constituida en los Estados Unidos (Arandu Labs LLC), la versión oficial y legalmente vinculante de estos Términos del Servicio es la redactada bajo la ley estadounidense. Esta traducción en español se pone a disposición del usuario para facilitar su lectura y comprensión integral.
-            </p>
-        </div>
+        <!-- ==================== SPANISH TERMS ==================== -->
+        <section id="lang-es" class="lang-section">
+            <header class="mb-12">
+                <h1 class="text-3xl sm:text-4xl font-black text-legalPrimary mb-3 tracking-tight">Términos y Condiciones</h1>
+                <p class="text-legalSecondary text-base font-light">Términos y condiciones específicos para la aplicación móvil <span class="font-bold text-legalPrimary italic">CompraMás</span>.</p>
+                <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-slate-500">
+                    <span><strong>Fecha de Vigencia:</strong> 23 de septiembre de 2026</span>
+                    <span>•</span>
+                    <span><strong>Proveedor:</strong> Arandu Labs LLC</span>
+                </div>
+                <div class="w-16 h-1 bg-emerald-500 mt-4 rounded-full"></div>
+            </header>
 
-        <div class="legal-section">
-            <p>
-                Estos términos y condiciones se aplican a la aplicación <strong>CompraMás</strong> (en adelante denominada "la Aplicación") para dispositivos móviles, creada, operada y mantenida por <strong>Arandu Labs LLC</strong> (en adelante denominada "el Proveedor de servicios") como un servicio con publicidad.
-            </p>
-            <p>
-                Al descargar, instalar o utilizar la Aplicación, usted acepta automáticamente quedar sujeto a los siguientes términos y condiciones. Se recomienda encarecidamente que lea y comprenda detenidamente estas estipulaciones antes de hacer uso de la Aplicación.
-            </p>
-            <div class="highlight-box">
-                <p class="text-sm !mb-0 font-medium text-legalPrimary">
-                    La copia no autorizada, descompilación o modificación de la Aplicación, de cualquier sección de su código fuente o de nuestras marcas comerciales está estrictamente prohibida. No se permite ningún intento de ingeniería inversa, extraer el código fuente de la Aplicación, traducir la Aplicación a otros idiomas ni crear versiones derivadas. Todas las marcas comerciales, derechos de autor, derechos sobre bases de datos y demás derechos de propiedad intelectual relacionados con la Aplicación pertenecen exclusivamente al Proveedor de servicios.
-                </p>
-            </div>
-            <p>
-                El Proveedor de servicios se dedica a garantizar que la Aplicación sea lo más beneficiosa y eficiente posible. Por lo tanto, se reserva el derecho de modificar la Aplicación o de introducir planes tarifarios o servicios adicionales en cualquier momento y por cualquier motivo, notificando debidamente cualquier cambio relevante al usuario.
-            </p>
-            <p>
-                La Aplicación almacena y procesa datos en el dispositivo para brindar el servicio de cálculo de listas, comparación de precios y consulta nutricional. Es su estricta responsabilidad mantener la seguridad de su dispositivo y el acceso a la Aplicación. El Proveedor de servicios desaconseja terminantemente realizar procesos de <em>jailbreak</em> o <em>root</em> en su teléfono, dado que la alteración de las medidas de seguridad del sistema operativo puede exponer el dispositivo a malware, anular garantías y provocar fallos severos o la inoperatividad total de la Aplicación.
-            </p>
-        </div>
-
-        <div class="legal-section">
-            <h2>Servicios de Terceros</h2>
-            <p>
-                Tenga en cuenta que la Aplicación utiliza servicios y SDKs de terceros que cuentan con sus propios Términos y Condiciones independientes. A continuación se proporcionan los enlaces directos a los términos de los proveedores de servicios externos integrados en la Aplicación:
-            </p>
-            <div class="highlight-box">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" class="partner-link">Google Play Services</a>
-                    <a href="https://developers.google.com/admob/terms" target="_blank" rel="noopener noreferrer" class="partner-link">Google AdMob</a>
-                    <a href="https://yandex.com/legal/rules/" target="_blank" rel="noopener noreferrer" class="partner-link">Yandex User Agreement</a>
-                    <a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener noreferrer" class="partner-link">Yandex Confidentiality Terms</a>
-                    <a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer" class="partner-link">Google Analytics for Firebase</a>
-                    <a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer" class="partner-link">Firebase Crashlytics</a>
-                    <a href="https://www.appodeal.com/privacy-policy" target="_blank" rel="noopener noreferrer" class="partner-link">Appodeal Terms & Mediation</a>
-                    <a href="https://www.facebook.com/legal/terms/plain_text_terms" target="_blank" rel="noopener noreferrer" class="partner-link">Meta Audience Network</a>
-                    <a href="https://unity3d.com/legal/terms-of-service" target="_blank" rel="noopener noreferrer" class="partner-link">Unity Technologies</a>
-                    <a href="https://onesignal.com/tos" target="_blank" rel="noopener noreferrer" class="partner-link">OneSignal</a>
-                    <a href="https://sentry.io/terms/" target="_blank" rel="noopener noreferrer" class="partner-link">Sentry</a>
-                    <a href="https://www.applovin.com/terms/" target="_blank" rel="noopener noreferrer" class="partner-link">AppLovin</a>
-                    <a href="https://vungle.com/terms/" target="_blank" rel="noopener noreferrer" class="partner-link">Liftoff / Vungle</a>
-                    <a href="https://www.startapp.com/policy/publisher-terms/" target="_blank" rel="noopener noreferrer" class="partner-link">StartApp</a>
+            <div class="legal-section">
+                <h2>1. Aceptación y Propiedad Intelectual</h2>
+                <p>Al descargar o utilizar CompraMás, aceptas estos términos. Queda prohibida la copia, modificación, descompilación o intento de extraer el código fuente de la aplicación. Todos los derechos de propiedad intelectual pertenecen a Arandu Labs LLC.</p>
+                <div class="highlight-box">
+                    <p class="text-xs text-slate-700 !mb-0 font-medium">Es tu responsabilidad la seguridad de tu dispositivo. El Proveedor desaconseja el <em>jailbreak</em> o <em>rooting</em>, que pueden invalidar funciones de seguridad y provocar fallos en la app.</p>
                 </div>
             </div>
-        </div>
 
-        <div class="legal-section">
-            <h2>Publicidad y Recopilación de Datos</h2>
-            <p>
-                La Aplicación es un servicio financiado mediante publicidad y utiliza empresas publicitarias de terceros, incluidas Google AdMob y Yandex Mobile Ads, para la entrega y medición de anuncios. Estas entidades pueden utilizar identificadores de publicidad, telemetría de red, cookies y direcciones IP para medir y optimizar los anuncios dentro de la Aplicación.
-            </p>
-            <div class="highlight-box">
-                <p class="text-sm !mb-3 font-medium text-legalPrimary">
-                    <strong>Importante:</strong> Es posible que terceros asociados estén accediendo a identificadores de red, empleando almacenamiento en caché local o recopilando parámetros técnicos anonimizados como resultado de la entrega y auditoría de anuncios en esta Aplicación.
-                </p>
-                <p class="text-sm !mb-0 text-slate-600">
-                    Para obtener información detallada sobre cómo Google y sus socios utilizan los datos en aplicaciones asociadas, consulte: <a href="https://www.google.com/policies/privacy/partners/" target="_blank" rel="noopener noreferrer" class="partner-link">Cómo utiliza Google los datos cuando utiliza los sitios o aplicaciones de nuestros socios</a>.
-                </p>
+            <div class="legal-section">
+                <h2>2. Servicios de Terceros y Publicidad</h2>
+                <p>La aplicación integra servicios y redes publicitarias de terceros (Google Play Services, AdMob, Yandex Mobile Ads, Firebase, Appodeal, Unity). Consulta sus términos en <a href="https://policies.google.com/terms" target="_blank" class="partner-link">Google Terms</a> y <a href="https://yandex.com/legal/rules/" target="_blank" class="partner-link">Yandex User Agreement</a>.</p>
             </div>
-            <p>
-                Al utilizar la Aplicación, usted consiente la interacción técnica con estas plataformas publicitarias de conformidad con sus respectivas políticas. El Proveedor de servicios no asume control directo sobre las tecnologías de medición de terceros independientes.
-            </p>
-            <p>
-                El Proveedor de servicios prohíbe de forma terminante el uso de código publicitario o herramientas de orientación para segmentar audiencias basadas en información sensible (datos de salud, condición financiera, origen étnico, creencias religiosas, afiliación política u orientación sexual).
-            </p>
-        </div>
 
-        <div class="legal-section">
-            <h2>Descargo de Responsabilidad del Proveedor de Servicios</h2>
-            <p>
-                El Proveedor de servicios no asume responsabilidad civil, contractual ni comercial respecto a los siguientes aspectos operativos:
-            </p>
-            <p>
-                <strong>1. Conectividad y Consumo de Datos Móviles:</strong> Ciertas funciones de la Aplicación (consulta de precios geolocalizada, cotejo con Open Food Facts, actualización de cotizaciones de combustibles y mediación publicitaria) requieren una conexión a Internet activa (Wi-Fi o datos móviles). El Proveedor de servicios no se responsabiliza si la Aplicación no funciona plenamente por falta de conectividad o agotamiento del paquete de datos de su operador. El usuario es el único responsable de los cargos derivados del tráfico de datos o de roaming internacional.
-            </p>
-            <p>
-                <strong>2. Exactitud de Precios en Góndola, Supermercados y Combustibles:</strong> Si bien el Proveedor de servicios procura mantener la información lo más actualizada y fidedigna posible, los precios de góndola, promociones bancarias y cotizaciones de combustibles son suministrados y modificados unilateralmente por las cadenas minoristas (Coto, Carrefour, Día, ChangoMás, Jumbo, Disco) y estaciones de servicio (YPF, Shell, Axion, Puma). El Proveedor de servicios no se responsabiliza por diferencias de precios entre la pantalla del teléfono y la caja registradora, ni por promociones no aplicadas por entidades financieras.
-            </p>
-            <p>
-                <strong>3. Información Nutricional de Referencia:</strong> Los datos de ingredientes, Nutri-Score, índice NOVA y sellos de advertencia se obtienen de repositorios abiertos colaborativos (como Open Food Facts) y rótulos de fabricantes. Poseen finalidad meramente informativa y no constituyen consejo médico ni nutricional profesional.
-            </p>
-            <p>
-                <strong>4. Disponibilidad del Hardware:</strong> Es responsabilidad exclusiva del usuario asegurarse de que su dispositivo cuente con batería suficiente y hardware operativo (cámara fotográfica y sensor GPS funcional) para la ejecución del servicio.
-            </p>
-        </div>
-
-        <div class="legal-section">
-            <h2>Actualizaciones y Terminación</h2>
-            <p>
-                El Proveedor de servicios puede emitir actualizaciones periódicas para optimizar la Aplicación, agregar funciones o adaptarse a nuevas versiones de los sistemas operativos Android o iOS. El usuario acepta descargar e instalar dichas actualizaciones para garantizar la estabilidad y seguridad del servicio.
-            </p>
-            <p>
-                El Proveedor de servicios se reserva el derecho de discontinuar o suspender la Aplicación en cualquier momento sin previa notificación. Ante cualquier rescisión, los derechos y licencias otorgados al usuario cesarán de inmediato y este deberá discontinuar el uso y desinstalar la Aplicación de su dispositivo.
-            </p>
-        </div>
-
-        <div class="legal-section">
-            <h2>Cambios a estos Términos y Condiciones</h2>
-            <p>
-                El Proveedor de servicios podrá actualizar sus Términos y Condiciones de forma periódica. Por lo tanto, se sugiere revisar esta página con regularidad. El Proveedor de servicios notificará cualquier modificación publicando la versión actualizada en este sitio web.
-            </p>
-            <p class="text-sm font-bold text-slate-700 italic">
-                Estos Términos y Condiciones entran en vigor a partir del 23 de septiembre de 2026.
-            </p>
-        </div>
-
-        <div class="legal-section">
-            <h2>Contáctenos</h2>
-            <p>
-                Si tiene alguna pregunta, consulta legal o sugerencia relativa a estos Términos y Condiciones, no dude en comunicarse con el Proveedor de servicios por correo electrónico a:
-            </p>
-            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 text-sm">
-                <p class="font-bold text-slate-800 mb-1">Arandu Labs LLC</p>
-                <p class="text-slate-600 mb-1">Departamento Legal: <a href="mailto:soporte@arandulabs.dev" class="partner-link font-semibold">soporte@arandulabs.dev</a></p>
-                <p class="text-slate-600 mb-0">Sitio Web: <a href="https://arandulabs.dev" class="partner-link font-semibold">https://arandulabs.dev</a></p>
+            <div class="legal-section">
+                <h2>3. Descargos de Responsabilidad (Precios y Nutrición)</h2>
+                <p>Los precios de supermercados y combustibles son fijados unilateralmente por las cadenas minoristas (Coto, Carrefour, Día, ChangoMás, Jumbo, Disco) y estaciones de servicio (YPF, Shell, Axion, Puma). Arandu Labs LLC no asume responsabilidad por discrepancias entre la app y la caja registradora. Los datos nutricionales de Open Food Facts son de carácter orientativo.</p>
             </div>
-        </div>
+
+            <div class="legal-section">
+                <h2>4. Terminación y Contacto</h2>
+                <p>El Proveedor puede actualizar o suspender el servicio en cualquier momento. Consultas: <a href="mailto:soporte@arandulabs.dev" class="partner-link font-bold">soporte@arandulabs.dev</a>.</p>
+            </div>
+        </section>
+
+        <!-- ==================== ENGLISH TERMS ==================== -->
+        <section id="lang-en" class="lang-section hidden">
+            <header class="mb-12">
+                <h1 class="text-3xl sm:text-4xl font-black text-legalPrimary mb-3 tracking-tight">Terms and Conditions</h1>
+                <p class="text-legalSecondary text-base font-light">Terms and conditions for the mobile application <span class="font-bold text-legalPrimary italic">CompraMás</span>.</p>
+                <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-slate-500">
+                    <span><strong>Effective Date:</strong> September 23, 2026</span>
+                    <span>•</span>
+                    <span><strong>Provider:</strong> Arandu Labs LLC</span>
+                </div>
+                <div class="w-16 h-1 bg-emerald-500 mt-4 rounded-full"></div>
+            </header>
+
+            <div class="legal-section">
+                <h2>1. Acceptance & Intellectual Property</h2>
+                <p>By downloading or using CompraMás, you agree to these terms. Unauthorized copying, modifying, decompiling, or attempting to extract the source code is strictly prohibited. All intellectual property rights belong to Arandu Labs LLC.</p>
+                <div class="highlight-box">
+                    <p class="text-xs text-slate-700 !mb-0 font-medium">You are responsible for your device security. We strongly advise against jailbreaking or rooting, which can compromise security controls and app functionality.</p>
+                </div>
+            </div>
+
+            <div class="legal-section">
+                <h2>2. Third-Party Services & Advertising</h2>
+                <p>The app integrates third-party SDKs and ad networks (Google Play Services, AdMob, Yandex Mobile Ads, Firebase, Appodeal, Unity). Check their terms at <a href="https://policies.google.com/terms" target="_blank" class="partner-link">Google Terms</a> and <a href="https://yandex.com/legal/rules/" target="_blank" class="partner-link">Yandex User Agreement</a>.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>3. Disclaimers (Retail Prices & Nutrition)</h2>
+                <p>Supermarket and fuel prices are set solely by retail chains and gas stations. Arandu Labs LLC is not responsible for in-store pricing discrepancies or checkout cashier variations. Nutritional information from Open Food Facts is purely indicative.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>4. Termination & Contact</h2>
+                <p>The Service Provider may update or discontinue the app at any time. Inquiries: <a href="mailto:soporte@arandulabs.dev" class="partner-link font-bold">soporte@arandulabs.dev</a>.</p>
+            </div>
+        </section>
+
+        <!-- =================== PORTUGUESE TERMS =================== -->
+        <section id="lang-pt" class="lang-section hidden">
+            <header class="mb-12">
+                <h1 class="text-3xl sm:text-4xl font-black text-legalPrimary mb-3 tracking-tight">Termos e Condições</h1>
+                <p class="text-legalSecondary text-base font-light">Termos e condições para o aplicativo móvel <span class="font-bold text-legalPrimary italic">CompraMás</span>.</p>
+                <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-slate-500">
+                    <span><strong>Data de Vigência:</strong> 23 de setembro de 2026</span>
+                    <span>•</span>
+                    <span><strong>Provedor:</strong> Arandu Labs LLC</span>
+                </div>
+                <div class="w-16 h-1 bg-emerald-500 mt-4 rounded-full"></div>
+            </header>
+
+            <div class="legal-section">
+                <h2>1. Aceitação e Propriedade Intelectual</h2>
+                <p>Ao baixar ou usar o CompraMás, você concorda com estes termos. É proibida a cópia, modificação, engenharia reversa ou extração de código-fonte. Todos os direitos pertencem à Arandu Labs LLC.</p>
+                <div class="highlight-box">
+                    <p class="text-xs text-slate-700 !mb-0 font-medium">Você é responsável pela segurança do aparelho. Desaconselhamos o rooting ou jailbreaking, que podem comprometer o funcionamento do app.</p>
+                </div>
+            </div>
+
+            <div class="legal-section">
+                <h2>2. Serviços de Terceiros e Publicidade</h2>
+                <p>O aplicativo integra parceiros de anúncios e análise (Google Play Services, AdMob, Yandex Mobile Ads, Firebase, Appodeal, Unity). Consulte os termos em <a href="https://policies.google.com/terms" target="_blank" class="partner-link">Google Terms</a> e <a href="https://yandex.com/legal/rules/" target="_blank" class="partner-link">Yandex Rules</a>.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>3. Isenção de Responsabilidade (Preços e Nutrição)</h2>
+                <p>Os preços são determinados exclusivamente pelas redes de varejo e postos de combustível. A Arandu Labs LLC não se responsabiliza por variações nos caixas das lojas. Os dados nutricionais são meramente informativos.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>4. Rescisão e Contato</h2>
+                <p>O Provedor pode atualizar ou suspender o serviço a qualquer momento. Dúvidas: <a href="mailto:soporte@arandulabs.dev" class="partner-link font-bold">soporte@arandulabs.dev</a>.</p>
+            </div>
+        </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-200 bg-slate-50 py-10 px-6 text-center text-xs text-slate-500">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-2">
-                <img src="assets/arandulabs_logo.png" alt="Arandu Labs" class="w-5 h-5 object-contain">
-                <span>© 2026 Arandu Labs LLC. Construido con integridad y transparencia.</span>
+    <!-- Footer matching firmapp-web / prisma-web -->
+    <footer class="bg-dark text-slate-500 py-16 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h3 class="text-white font-extrabold text-xl mb-3">CompraMás</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-sm">Comparador inteligente de compras e nutrição local-first, desenvolvido por Arandu Labs LLC.</p>
+                </div>
+                <div class="flex flex-col md:items-end gap-2.5 text-sm font-semibold">
+                    <span class="text-white text-xs uppercase tracking-widest mb-1">Legal & Soporte</span>
+                    <a href="privacy.html" class="hover:text-white transition-colors">Política de Privacidad</a>
+                    <a href="faq.html" class="hover:text-white transition-colors">Preguntas Frecuentes</a>
+                    <a href="delete-account/" class="hover:text-white transition-colors">Eliminación de Cuenta</a>
+                    <a href="index.html" class="hover:text-white transition-colors">Volver a la Web</a>
+                </div>
             </div>
-            <div class="flex flex-wrap gap-4">
-                <a href="privacy.html" class="hover:text-slate-800 transition-colors">Política de Privacidad</a>
-                <a href="faq.html" class="hover:text-slate-800 transition-colors">Preguntas Frecuentes</a>
-                <a href="delete-account/" class="hover:text-slate-800 transition-colors">Eliminar Cuenta</a>
-                <a href="https://arandulabs.dev" class="hover:text-emerald-600 transition-colors font-medium">arandulabs.dev</a>
+            <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2026 Arandu Labs LLC. Todos los derechos reservados.</p>
+                <p class="text-slate-500">Disponible para Android en Google Play.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Multi-Language Switch Script -->
+    <script>
+        function switchLanguage(lang) {
+            const sections = document.querySelectorAll('.lang-section');
+            sections.forEach(sec => sec.classList.add('hidden'));
+            const activeSection = document.getElementById(`lang-${lang}`);
+            if (activeSection) activeSection.classList.remove('hidden');
+
+            ['es', 'en', 'pt'].forEach(l => {
+                const btn = document.getElementById(`btn-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.className = 'px-2.5 py-1 rounded-full text-xs font-bold transition-all bg-emerald-600 text-white';
+                    } else {
+                        btn.className = 'px-2.5 py-1 rounded-full text-xs font-bold transition-all text-slate-600 hover:text-slate-900';
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>

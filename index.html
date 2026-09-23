@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompraMás — Comparador de Precios en Supermercados, Nutrición y Combustibles | Arandu Labs</title>
+    <title>CompraMás — Comparador de Precios, Nutrición y Combustibles | Arandu Labs</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo.png">
-    <meta name="description" content="CompraMás de Arandu Labs: Compara precios en supermercados cercanos en tiempo real, escanea códigos de barra con análisis nutricional, optimiza tu changuito y ahorra en combustibles y promociones.">
+    <meta name="description" content="CompraMás de Arandu Labs: Compara precios en supermercados en tiempo real, escanea códigos de barra con análisis nutricional, optimiza compras y ahorra en combustibles.">
     <meta name="author" content="Arandu Labs LLC">
     <link rel="canonical" href="https://compramas.arandulabs.dev/">
 
@@ -75,365 +75,453 @@
             filter: blur(120px);
             z-index: -1;
             pointer-events: none;
-            animation: pulseSlow 12s infinite alternate ease-in-out;
-        }
-        @keyframes pulseSlow {
-            0% { transform: scale(1) translate(0, 0); opacity: 0.12; }
-            100% { transform: scale(1.15) translate(30px, 20px); opacity: 0.22; }
+            opacity: 0.15;
         }
     </style>
 </head>
-<body class="antialiased min-h-screen relative">
+<body class="antialiased min-h-screen relative flex flex-col justify-between">
 
     <!-- Ambient Glow Blobs -->
     <div class="blob w-[500px] h-[500px] bg-emerald-500 top-12 -left-36"></div>
-    <div class="blob w-[450px] h-[450px] bg-cyan-500 top-[35%] -right-28" style="animation-delay: -4s;"></div>
-    <div class="blob w-[550px] h-[550px] bg-blue-600 top-[70%] -left-32" style="animation-delay: -8s;"></div>
+    <div class="blob w-[450px] h-[450px] bg-cyan-500 top-[40%] -right-28"></div>
 
-    <!-- Navigation Header -->
-    <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/10 bg-dark/85 backdrop-blur-xl">
+    <!-- Navigation Header (Matching firmapp-web / prisma-web: logo + 3-lang switcher + Arandu Labs link) -->
+    <header class="fixed w-full z-50 top-0 left-0 border-b border-white/10 bg-dark/85 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <div class="flex items-center gap-3">
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="assets/logo.png" alt="CompraMás" class="w-11 h-11 object-contain rounded-xl drop-shadow-[0_0_15px_rgba(16,185,129,0.35)]">
-                    <div class="flex flex-col">
+                    <img src="assets/logo.png" alt="CompraMás" class="w-10 h-10 object-contain rounded-xl drop-shadow-[0_0_15px_rgba(16,185,129,0.35)]">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline">
                         <span class="text-xl sm:text-2xl font-outfit font-black tracking-tight text-white group-hover:text-brandCyan transition-colors">CompraMás</span>
-                        <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.25em] text-brandGreen font-bold">by Arandu Labs</span>
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-brandGreen font-bold sm:ml-2">by Arandu Labs</span>
                     </div>
                 </a>
             </div>
 
-            <!-- Nav Links -->
-            <div class="hidden lg:flex items-center gap-8 text-xs font-semibold text-slate-300">
-                <a href="#features" class="hover:text-emerald-400 transition-colors">Funcionalidades</a>
-                <a href="#how-it-works" class="hover:text-emerald-400 transition-colors">Cómo Funciona</a>
-                <a href="#nutrition" class="hover:text-emerald-400 transition-colors">Escáner Nutricional</a>
-                <a href="faq.html" class="hover:text-emerald-400 transition-colors">FAQ</a>
-                <a href="privacy.html" class="hover:text-emerald-400 transition-colors">Privacidad</a>
-            </div>
+            <!-- Language & Ecosystem Section -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <!-- 3-Language Switcher (ES, EN, PT) -->
+                <div class="flex items-center gap-1 bg-white/5 border border-white/10 p-1 rounded-full">
+                    <button id="btn-es" onclick="switchLanguage('es')" class="px-2.5 py-1 rounded-full text-xs font-bold transition-all bg-emerald-500 text-dark">
+                        ES
+                    </button>
+                    <button id="btn-en" onclick="switchLanguage('en')" class="px-2.5 py-1 rounded-full text-xs font-bold transition-all text-slate-400 hover:text-white">
+                        EN
+                    </button>
+                    <button id="btn-pt" onclick="switchLanguage('pt')" class="px-2.5 py-1 rounded-full text-xs font-bold transition-all text-slate-400 hover:text-white">
+                        PT
+                    </button>
+                </div>
 
-            <!-- Ecosystem & CTA -->
-            <div class="flex items-center gap-3">
-                <a href="https://arandulabs.dev" class="flex items-center gap-2 px-3.5 py-1.5 bg-white/5 border border-white/10 hover:border-emerald-500/40 text-white font-bold rounded-xl transition-all text-xs">
+                <!-- Arandu Labs Link Button -->
+                <a href="https://arandulabs.dev" target="_blank" rel="noopener" class="flex items-center gap-2 px-3.5 py-1.5 bg-white/5 border border-white/10 hover:border-emerald-500/40 text-white font-bold rounded-xl transition-all text-xs">
                     <img src="assets/arandulabs_logo.png" alt="Arandu Labs" class="w-4 h-4 object-contain">
                     <span class="hidden sm:inline uppercase tracking-wider text-[11px]">Arandu Labs</span>
                 </a>
-                <a href="#download" class="hidden sm:inline-flex items-center px-4 py-2 bg-gradient-brand text-dark font-extrabold text-xs rounded-xl shadow-lg shadow-emerald-500/20 hover:opacity-95 transition-all">
-                    Obtener App
-                </a>
             </div>
-        </div>
-    </nav>
-
-    <!-- ==================== HERO SECTION ==================== -->
-    <header class="relative pt-36 pb-20 sm:pt-44 sm:pb-28 px-6 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- Hero Left: Text & Badges -->
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-wide">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    AHORRO INTELIGENTE & COMPARADOR DE PRECIOS
-                </div>
-
-                <h1 class="text-4xl sm:text-6xl font-outfit font-black tracking-tight text-white leading-[1.1]">
-                    Ahorrá de verdad en cada compra con <span class="text-gradient">inteligencia y precisión</span>.
-                </h1>
-
-                <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0">
-                    Compara precios en góndolas de supermercados cercanos en tiempo real, escanea códigos de barras con semáforo nutricional y optimiza tu changuito para pagar siempre lo justo.
-                </p>
-
-                <!-- Action Buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2" id="download">
-                    <a href="https://play.google.com/store/apps/details?id=dev.arandulabs.compramas" target="_blank" rel="noopener" class="flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/15 hover:border-emerald-400/50 hover:bg-white/10 rounded-2xl transition-all shadow-xl">
-                        <img src="assets/download-google.svg" alt="Google Play" class="h-8 object-contain">
-                    </a>
-                    <a href="#features" class="px-6 py-3.5 glass text-white font-bold text-xs uppercase tracking-wider rounded-2xl hover:border-emerald-500/40 transition-all">
-                        Explorar Funciones ↓
-                    </a>
-                </div>
-
-                <!-- Trust Stats -->
-                <div class="pt-6 grid grid-cols-3 gap-4 border-t border-white/10 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
-                    <div>
-                        <div class="text-xl sm:text-2xl font-black text-white font-outfit">25% - 40%</div>
-                        <div class="text-[11px] text-slate-400">Ahorro Promedio</div>
-                    </div>
-                    <div>
-                        <div class="text-xl sm:text-2xl font-black text-white font-outfit">Local-First</div>
-                        <div class="text-[11px] text-slate-400">100% Privacidad</div>
-                    </div>
-                    <div>
-                        <div class="text-xl sm:text-2xl font-black text-white font-outfit">En Vivo</div>
-                        <div class="text-[11px] text-slate-400">Precios por GPS</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hero Right: Interactive App Preview Card -->
-            <div class="lg:col-span-5 relative flex justify-center">
-                <div class="w-full max-w-sm glass p-5 rounded-3xl border border-white/15 shadow-2xl relative">
-                    <!-- Scanner Header simulation -->
-                    <div class="flex items-center justify-between pb-3 border-b border-white/10">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-                            <span class="text-xs font-bold text-slate-300">Escáner Activo</span>
-                        </div>
-                        <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded-md">EAN-13 Detectado</span>
-                    </div>
-
-                    <!-- Product Mockup Card -->
-                    <div class="mt-4 bg-slate-900/90 rounded-2xl p-4 border border-white/10 space-y-3">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="text-[10px] text-slate-400 uppercase font-semibold">Lácteos y Bebidas</span>
-                                <h4 class="text-base font-bold text-white leading-tight">Leche Entera Clásica 1L</h4>
-                            </div>
-                            <span class="px-2 py-1 bg-emerald-500 text-dark font-black text-xs rounded-lg shadow">NUTRI-SCORE A</span>
-                        </div>
-
-                        <!-- Nutritional badges row -->
-                        <div class="flex gap-2">
-                            <span class="text-[10px] bg-blue-500/20 text-blue-300 font-bold px-2 py-0.5 rounded">NOVA 1 (Sin procesar)</span>
-                            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded">Sin Sellos</span>
-                        </div>
-
-                        <!-- Price comparison list -->
-                        <div class="pt-2 space-y-1.5 text-xs">
-                            <div class="text-[11px] font-bold text-slate-400">Precios en sucursales cercanas:</div>
-                            <div class="flex justify-between items-center bg-emerald-500/10 border border-emerald-500/30 p-2 rounded-xl">
-                                <span class="font-bold text-emerald-300">Supermercado Coto (450m)</span>
-                                <span class="font-black text-emerald-400">$ 1.150 <span class="text-[10px] text-emerald-300/80 font-normal">(Mejor precio)</span></span>
-                            </div>
-                            <div class="flex justify-between items-center bg-white/5 p-2 rounded-xl text-slate-300">
-                                <span>Carrefour Express (600m)</span>
-                                <span class="font-bold text-slate-200">$ 1.290</span>
-                            </div>
-                            <div class="flex justify-between items-center bg-white/5 p-2 rounded-xl text-slate-400">
-                                <span>Supermercado Día (850m)</span>
-                                <span class="font-bold text-slate-300">$ 1.380</span>
-                            </div>
-                        </div>
-
-                        <div class="pt-1 text-center">
-                            <span class="text-[11px] font-semibold text-emerald-400">✓ Ahorrás hasta $230 por unidad eligiendo la góndola correcta</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </header>
 
-    <!-- ==================== CORE FEATURES GRID ==================== -->
-    <section id="features" class="py-20 px-6 max-w-7xl mx-auto">
-        <div class="text-center space-y-3 mb-16">
-            <span class="text-brandGreen font-bold tracking-[0.2em] text-xs uppercase inline-block bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-                Herramientas Avanzadas
-            </span>
-            <h2 class="text-3xl sm:text-4xl font-outfit font-black text-white">
-                Todo lo que necesitas para <span class="text-gradient">comprar de forma inteligente</span>
-            </h2>
-            <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto font-light">
-                Tecnología de última generación al servicio del bolsillo familiar y la nutrición responsable.
-            </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-            <!-- Card 1 -->
-            <div class="glass-card p-7 rounded-3xl space-y-4">
-                <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path></svg>
+    <!-- ======================================================== -->
+    <!-- ==================== SPANISH SECTION ==================== -->
+    <!-- ======================================================== -->
+    <div id="lang-es" class="lang-section flex-grow">
+        <!-- Hero Section -->
+        <section class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        AHORRO INTELIGENTE & COMPARADOR DE PRECIOS
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-outfit font-black tracking-tight text-white leading-[1.1]">
+                        Ahorrá de verdad en cada compra con <span class="text-gradient">precisión e inteligencia</span>.
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0">
+                        Compará precios en góndolas de supermercados cercanos en tiempo real, escaneá códigos de barras con análisis nutricional y optimizá tu changuito para pagar siempre lo justo.
+                    </p>
+                    <!-- Único botón de descarga -->
+                    <div class="pt-2 flex justify-center lg:justify-start">
+                        <a href="https://play.google.com/store/apps/details?id=dev.arandulabs.compramas" target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/15 hover:border-emerald-400/50 hover:bg-white/10 rounded-2xl transition-all shadow-xl">
+                            <img src="assets/download-google.svg" alt="Google Play" class="h-8 object-contain">
+                        </a>
+                    </div>
                 </div>
-                <h3 class="text-xl font-outfit font-bold text-white">Escáner Nutricional & Sellos</h3>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                    Decodificación veloz de códigos de barras. Analiza al instante Nutri-Score, nivel de ultraprocesamiento NOVA (1 a 4), Eco-Score y octógonos negros de la Ley de Etiquetado Frontal.
-                </p>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="glass-card p-7 rounded-3xl space-y-4">
-                <div class="w-12 h-12 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                </div>
-                <h3 class="text-xl font-outfit font-bold text-white">Comparador de Supermercados</h3>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                    Geolocalización en primer plano para listar sucursales de Coto, Carrefour, Día, ChangoMás, Jumbo y Disco. Encuentra quién tiene el precio más bajo a pocos metros de tu casa.
-                </p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="glass-card p-7 rounded-3xl space-y-4">
-                <div class="w-12 h-12 rounded-2xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                </div>
-                <h3 class="text-xl font-outfit font-bold text-white">Optimizador de Changuito</h3>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                    Arma tu lista de compras y deja que el algoritmo calcule el total en cada comercio. Te recomienda si conviene comprar todo en un lugar o dividir la lista para un ahorro superior.
-                </p>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="glass-card p-7 rounded-3xl space-y-4">
-                <div class="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
-                <h3 class="text-xl font-outfit font-bold text-white">Mapa de Combustibles</h3>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                    Cotizaciones actualizadas de Nafta Súper, Premium, Gasoil y GNC en estaciones de servicio (YPF, Shell, Axion, Puma). Carga combustible en la estación más conveniente antes de salir.
-                </p>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="glass-card p-7 rounded-3xl space-y-4">
-                <div class="w-12 h-12 rounded-2xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <h3 class="text-xl font-outfit font-bold text-white">Promos Bancarias & Billeteras</h3>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                    Calendario semanal con descuentos de bancos y billeteras electrónicas (BNA+, Cuenta DNI, MODO, Mercado Pago). Conoce el día exacto de reintegro en cada supermercado.
-                </p>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="glass-card p-7 rounded-3xl space-y-4">
-                <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                </div>
-                <h3 class="text-xl font-outfit font-bold text-white">Asistente con IA (Gemini)</h3>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                    Inteligencia artificial que te ayuda a encontrar alternativas más saludables y sustitutos más económicos para tus recetas sin sacrificar calidad ni sabor.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ==================== HOW IT WORKS ==================== -->
-    <section id="how-it-works" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
-        <div class="text-center space-y-3 mb-16">
-            <span class="text-brandCyan font-bold tracking-[0.2em] text-xs uppercase inline-block bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
-                Experiencia Simple
-            </span>
-            <h2 class="text-3xl sm:text-4xl font-outfit font-black text-white">
-                Empieza a ahorrar en <span class="text-gradient">tres pasos</span>
-            </h2>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 text-center">
-            <div class="glass p-8 rounded-3xl space-y-4 border-white/10">
-                <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-dark flex items-center justify-center font-black text-xl mx-auto shadow-lg shadow-emerald-500/25">1</div>
-                <h3 class="text-lg font-outfit font-bold text-white">Escaneá o Buscá</h3>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                    Apunta con la cámara al producto o añade ítems a tu changuito directamente desde el buscador inteligente.
-                </p>
-            </div>
-
-            <div class="glass p-8 rounded-3xl space-y-4 border-white/10">
-                <div class="w-12 h-12 rounded-2xl bg-cyan-500 text-dark flex items-center justify-center font-black text-xl mx-auto shadow-lg shadow-cyan-500/25">2</div>
-                <h3 class="text-lg font-outfit font-bold text-white">Compará en Góndola</h3>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                    Mira en segundos qué comercio cercano tiene el producto más barato y qué promociones bancarias aplican hoy.
-                </p>
-            </div>
-
-            <div class="glass p-8 rounded-3xl space-y-4 border-white/10">
-                <div class="w-12 h-12 rounded-2xl bg-blue-500 text-dark flex items-center justify-center font-black text-xl mx-auto shadow-lg shadow-blue-500/25">3</div>
-                <h3 class="text-lg font-outfit font-bold text-white">Ahorrá en Cada Ticket</h3>
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                    Llega a la caja con la certeza de haber pagado el menor precio del mercado y conociendo la calidad de tus alimentos.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== LOCAL-FIRST & PRIVACY SPOTLIGHT ==================== -->
-    <section class="py-16 px-6 max-w-5xl mx-auto">
-        <div class="glass p-8 sm:p-12 rounded-3xl border border-emerald-500/30 text-center space-y-4">
-            <span class="text-emerald-400 font-bold tracking-widest text-xs uppercase">Estándar Arandu Labs</span>
-            <h2 class="text-2xl sm:text-3xl font-outfit font-extrabold text-white">Privacidad Absoluta y Filosofía Local-First</h2>
-            <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
-                Tus compras, tus listas y tus hábitos son tuyos. CompraMás almacena tu información en la base de datos interna de tu dispositivo, sin perfiles intrusivos ni comercialización de datos personales.
-            </p>
-            <div class="pt-4 flex flex-wrap justify-center gap-4 text-xs font-semibold text-slate-300">
-                <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">✓ Cero venta de datos</span>
-                <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">✓ Sin grabación de cámara</span>
-                <span class="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">✓ Almacenamiento local SQLite</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== CALL TO ACTION BANNER ==================== -->
-    <section class="py-20 px-6 max-w-7xl mx-auto text-center space-y-6">
-        <h2 class="text-3xl sm:text-5xl font-outfit font-black text-white">
-            Descargá <span class="text-gradient">CompraMás</span> hoy mismo
-        </h2>
-        <p class="text-slate-400 text-sm sm:text-base max-w-lg mx-auto">
-            Únete a la nueva era de compras inteligentes y lleva el control real de tu presupuesto.
-        </p>
-        <div class="flex justify-center pt-2">
-            <a href="https://play.google.com/store/apps/details?id=dev.arandulabs.compramas" target="_blank" rel="noopener" class="flex items-center gap-3 px-8 py-3.5 bg-white/5 border border-white/20 hover:border-emerald-400/60 hover:bg-white/10 rounded-2xl transition-all shadow-xl">
-                <img src="assets/download-google.svg" alt="Google Play" class="h-9 object-contain">
-            </a>
-        </div>
-    </section>
-
-    <!-- ==================== CORPORATE FOOTER ==================== -->
-    <footer class="border-t border-white/10 bg-dark py-14 px-6 text-slate-400 text-xs">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-            <!-- Col 1: Brand & Desc -->
-            <div class="space-y-4 md:col-span-1">
-                <div class="flex items-center gap-3">
-                    <img src="assets/logo.png" alt="CompraMás" class="w-8 h-8 object-contain rounded-lg">
-                    <span class="text-lg font-outfit font-black text-white">CompraMás</span>
-                </div>
-                <p class="text-slate-400 text-xs leading-relaxed font-light">
-                    Plataforma inteligente de comparación de precios, nutrición y combustibles desarrollada por Arandu Labs LLC.
-                </p>
-                <div class="flex items-center gap-2 text-slate-400 pt-1">
-                    <img src="assets/arandulabs_logo.png" alt="Arandu Labs" class="w-4 h-4 object-contain">
-                    <span class="font-bold text-[11px] text-white">Arandu Labs LLC</span>
+                <!-- App Mockup Card -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="w-full max-w-sm glass p-5 rounded-3xl border border-white/15 shadow-2xl space-y-3">
+                        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                                <span class="text-xs font-bold text-slate-300">Escáner Activo</span>
+                            </div>
+                            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded-md">EAN-13 Detectado</span>
+                        </div>
+                        <div class="bg-slate-900/90 rounded-2xl p-4 border border-white/10 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 uppercase font-semibold">Lácteos</span>
+                                    <h4 class="text-base font-bold text-white">Leche Entera 1L</h4>
+                                </div>
+                                <span class="px-2 py-1 bg-emerald-500 text-dark font-black text-xs rounded-lg">NUTRI-SCORE A</span>
+                            </div>
+                            <div class="space-y-1.5 text-xs pt-1">
+                                <div class="flex justify-between items-center bg-emerald-500/10 border border-emerald-500/30 p-2 rounded-xl">
+                                    <span class="font-bold text-emerald-300">Supermercado Coto (450m)</span>
+                                    <span class="font-black text-emerald-400">$ 1.150 <span class="text-[10px] text-emerald-300/80 font-normal">(Mejor)</span></span>
+                                </div>
+                                <div class="flex justify-between items-center bg-white/5 p-2 rounded-xl text-slate-300">
+                                    <span>Carrefour Express (600m)</span>
+                                    <span class="font-bold text-slate-200">$ 1.290</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Col 2: Ecosistema -->
-            <div class="space-y-3">
-                <h4 class="font-bold text-white text-sm uppercase tracking-wider">Ecosistema</h4>
-                <ul class="space-y-2">
-                    <li><a href="https://arandulabs.dev" class="hover:text-emerald-400 transition-colors">Arandu Labs Corporativo</a></li>
-                    <li><a href="https://firmapp.arandulabs.dev" class="hover:text-emerald-400 transition-colors">FirmApp</a></li>
-                    <li><a href="https://prisma.arandulabs.dev" class="hover:text-emerald-400 transition-colors">Prisma Noticias</a></li>
-                </ul>
+        <!-- Features Grid -->
+        <section class="py-16 px-6 max-w-7xl mx-auto border-t border-white/5">
+            <div class="text-center space-y-3 mb-14">
+                <span class="text-brandGreen font-bold tracking-[0.2em] text-xs uppercase inline-block bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Herramientas Avanzadas</span>
+                <h2 class="text-3xl sm:text-4xl font-outfit font-black text-white">Todo para comprar con <span class="text-gradient">máximo ahorro</span></h2>
             </div>
-
-            <!-- Col 3: Navegación & Soporte -->
-            <div class="space-y-3">
-                <h4 class="font-bold text-white text-sm uppercase tracking-wider">Soporte</h4>
-                <ul class="space-y-2">
-                    <li><a href="faq.html" class="hover:text-emerald-400 transition-colors">Preguntas Frecuentes (FAQ)</a></li>
-                    <li><a href="mailto:soporte@arandulabs.dev" class="hover:text-emerald-400 transition-colors">soporte@arandulabs.dev</a></li>
-                    <li><a href="delete-account/" class="hover:text-emerald-400 transition-colors">Eliminación de Cuenta</a></li>
-                </ul>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold">🔍</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Escáner Nutricional & Sellos</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Lectura de código de barras. Consulta Nutri-Score, NOVA (1-4), Eco-Score y sellos frontales al instante.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center font-bold">🛒</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Comparador de Supermercados</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Geolocalización GPS en primer plano para ver góndolas de Coto, Carrefour, Día, ChangoMás, Jumbo y Disco.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center font-bold">📊</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Optimizador de Changuito</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Calcula el total de tu carrito en cada comercio y te sugiere la mejor estrategia para gastar menos.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center font-bold">⛽</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Mapa de Combustibles</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Precios actualizados de Nafta Súper, Premium, Gasoil y GNC en estaciones YPF, Shell, Axion y Puma.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center font-bold">💳</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Promociones Bancarias</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Descuentos vigentes por banco y billetera virtual (Cuenta DNI, BNA+, MODO, Mercado Pago).</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold">✨</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Asistente con IA (Gemini)</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Recomendaciones de sustitutos económicos y saludables sin perder sabor ni calidad.</p>
+                </div>
             </div>
+        </section>
 
-            <!-- Col 4: Legal -->
-            <div class="space-y-3">
-                <h4 class="font-bold text-white text-sm uppercase tracking-wider">Legal</h4>
-                <ul class="space-y-2">
-                    <li><a href="privacy.html" class="hover:text-emerald-400 transition-colors">Política de Privacidad</a></li>
-                    <li><a href="terms.html" class="hover:text-emerald-400 transition-colors">Términos y Condiciones</a></li>
-                </ul>
+        <!-- Footer ES (Matching firmapp-web / prisma-web) -->
+        <footer class="bg-dark text-slate-500 py-16 px-6 border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                    <div>
+                        <h3 class="text-white font-extrabold text-xl mb-3">CompraMás</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed max-w-sm">Comparador inteligente de precios, nutrición y combustibles enfocado en la privacidad local-first, desarrollado por Arandu Labs LLC.</p>
+                    </div>
+                    <div class="flex flex-col md:items-end gap-2.5 text-sm font-semibold">
+                        <span class="text-white text-xs uppercase tracking-widest mb-1">Legal & Soporte</span>
+                        <a href="privacy.html" class="hover:text-white transition-colors">Política de Privacidad</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Términos y Condiciones</a>
+                        <a href="faq.html" class="hover:text-white transition-colors">Preguntas Frecuentes</a>
+                        <a href="delete-account/" class="hover:text-white transition-colors">Eliminación de Cuenta y Datos</a>
+                    </div>
+                </div>
+                <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+                    <p>&copy; 2026 Arandu Labs LLC. Todos los derechos reservados.</p>
+                    <p class="text-slate-500">Disponible para Android en Google Play.</p>
+                </div>
             </div>
-        </div>
+        </footer>
+    </div>
 
-        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-            <span>© 2026 Arandu Labs LLC. Todos los derechos reservados.</span>
-            <span>Diseñado con tecnología local-first en Estados Unidos y Latinoamérica.</span>
-        </div>
-    </footer>
+    <!-- ======================================================== -->
+    <!-- ==================== ENGLISH SECTION ==================== -->
+    <!-- ======================================================== -->
+    <div id="lang-en" class="lang-section hidden flex-grow">
+        <!-- Hero Section -->
+        <section class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        SMART GROCERY SAVINGS & PRICE COMPARISON
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-outfit font-black tracking-tight text-white leading-[1.1]">
+                        Save on every shopping trip with <span class="text-gradient">precision and intelligence</span>.
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0">
+                        Compare supermarket prices nearby in real-time, scan barcodes for detailed nutrition scores, and optimize your cart to pay the lowest total.
+                    </p>
+                    <div class="pt-2 flex justify-center lg:justify-start">
+                        <a href="https://play.google.com/store/apps/details?id=dev.arandulabs.compramas" target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/15 hover:border-emerald-400/50 hover:bg-white/10 rounded-2xl transition-all shadow-xl">
+                            <img src="assets/download-google.svg" alt="Google Play" class="h-8 object-contain">
+                        </a>
+                    </div>
+                </div>
 
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="w-full max-w-sm glass p-5 rounded-3xl border border-white/15 shadow-2xl space-y-3">
+                        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                                <span class="text-xs font-bold text-slate-300">Scanner Active</span>
+                            </div>
+                            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded-md">EAN-13 Detected</span>
+                        </div>
+                        <div class="bg-slate-900/90 rounded-2xl p-4 border border-white/10 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 uppercase font-semibold">Dairy</span>
+                                    <h4 class="text-base font-bold text-white">Whole Milk 1L</h4>
+                                </div>
+                                <span class="px-2 py-1 bg-emerald-500 text-dark font-black text-xs rounded-lg">NUTRI-SCORE A</span>
+                            </div>
+                            <div class="space-y-1.5 text-xs pt-1">
+                                <div class="flex justify-between items-center bg-emerald-500/10 border border-emerald-500/30 p-2 rounded-xl">
+                                    <span class="font-bold text-emerald-300">Supermarket Coto (450m)</span>
+                                    <span class="font-black text-emerald-400">$ 1.150 <span class="text-[10px] text-emerald-300/80 font-normal">(Best)</span></span>
+                                </div>
+                                <div class="flex justify-between items-center bg-white/5 p-2 rounded-xl text-slate-300">
+                                    <span>Carrefour Express (600m)</span>
+                                    <span class="font-bold text-slate-200">$ 1.290</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid EN -->
+        <section class="py-16 px-6 max-w-7xl mx-auto border-t border-white/5">
+            <div class="text-center space-y-3 mb-14">
+                <span class="text-brandGreen font-bold tracking-[0.2em] text-xs uppercase inline-block bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Core Features</span>
+                <h2 class="text-3xl sm:text-4xl font-outfit font-black text-white">Engineered for <span class="text-gradient">smart consumer savings</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold">🔍</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Barcode & Nutrition Scanner</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Instant barcode decoding. Check Nutri-Score, NOVA (1-4) processing index, and food warning labels.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center font-bold">🛒</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Supermarket Comparison</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Foreground GPS calculates distance to nearby chains to find the cheapest shelf prices.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center font-bold">📊</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Smart Cart Optimizer</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Calculates total basket costs and suggests single or multi-store strategies to maximize savings.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center font-bold">⛽</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Gas Station Price Map</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Live gas station map with fuel rates (Regular, Premium, Diesel, CNG) across major brands.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center font-bold">💳</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Bank & Wallet Discounts</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Daily promotion schedules for credit/debit cards and digital wallets with cashback caps.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold">✨</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">AI Shopping Assistant (Gemini)</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Smart AI recommendations for budget-friendly recipe alternatives and healthier ingredients.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer EN -->
+        <footer class="bg-dark text-slate-500 py-16 px-6 border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                    <div>
+                        <h3 class="text-white font-extrabold text-xl mb-3">CompraMás</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed max-w-sm">Smart grocery price comparison, nutrition scanner, and fuel tracker built with local-first privacy by Arandu Labs LLC.</p>
+                    </div>
+                    <div class="flex flex-col md:items-end gap-2.5 text-sm font-semibold">
+                        <span class="text-white text-xs uppercase tracking-widest mb-1">Legal & Support</span>
+                        <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                        <a href="faq.html" class="hover:text-white transition-colors">FAQ</a>
+                        <a href="delete-account/" class="hover:text-white transition-colors">Account & Data Deletion</a>
+                    </div>
+                </div>
+                <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+                    <p>&copy; 2026 Arandu Labs LLC. All rights reserved.</p>
+                    <p class="text-slate-500">Available on Google Play for Android.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- =================== PORTUGUESE SECTION ================== -->
+    <!-- ======================================================== -->
+    <div id="lang-pt" class="lang-section hidden flex-grow">
+        <!-- Hero Section -->
+        <section class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        ECONOMIA INTELIGENTE & COMPARADOR DE PREÇOS
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-outfit font-black tracking-tight text-white leading-[1.1]">
+                        Economize em cada compra com <span class="text-gradient">precisão e inteligência</span>.
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0">
+                        Compare preços em supermercados próximos em tempo real, escaneie códigos de barras com análise nutricional e otimize seu carrinho.
+                    </p>
+                    <div class="pt-2 flex justify-center lg:justify-start">
+                        <a href="https://play.google.com/store/apps/details?id=dev.arandulabs.compramas" target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/15 hover:border-emerald-400/50 hover:bg-white/10 rounded-2xl transition-all shadow-xl">
+                            <img src="assets/download-google.svg" alt="Google Play" class="h-8 object-contain">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="w-full max-w-sm glass p-5 rounded-3xl border border-white/15 shadow-2xl space-y-3">
+                        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                                <span class="text-xs font-bold text-slate-300">Scanner Ativo</span>
+                            </div>
+                            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded-md">EAN-13 Detectado</span>
+                        </div>
+                        <div class="bg-slate-900/90 rounded-2xl p-4 border border-white/10 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 uppercase font-semibold">Laticínios</span>
+                                    <h4 class="text-base font-bold text-white">Leite Integral 1L</h4>
+                                </div>
+                                <span class="px-2 py-1 bg-emerald-500 text-dark font-black text-xs rounded-lg">NUTRI-SCORE A</span>
+                            </div>
+                            <div class="space-y-1.5 text-xs pt-1">
+                                <div class="flex justify-between items-center bg-emerald-500/10 border border-emerald-500/30 p-2 rounded-xl">
+                                    <span class="font-bold text-emerald-300">Supermercado Coto (450m)</span>
+                                    <span class="font-black text-emerald-400">$ 1.150 <span class="text-[10px] text-emerald-300/80 font-normal">(Melhor)</span></span>
+                                </div>
+                                <div class="flex justify-between items-center bg-white/5 p-2 rounded-xl text-slate-300">
+                                    <span>Carrefour Express (600m)</span>
+                                    <span class="font-bold text-slate-200">$ 1.290</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid PT -->
+        <section class="py-16 px-6 max-w-7xl mx-auto border-t border-white/5">
+            <div class="text-center space-y-3 mb-14">
+                <span class="text-brandGreen font-bold tracking-[0.2em] text-xs uppercase inline-block bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Recursos Avançados</span>
+                <h2 class="text-3xl sm:text-4xl font-outfit font-black text-white">Tecnologia para <span class="text-gradient">máxima economia</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold">🔍</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Scanner Nutricional & Selos</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Leitura de código de barras. Verifique Nutri-Score, índice NOVA (1-4) e advertências alimentares.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center font-bold">🛒</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Comparador de Supermercados</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Geolocalização GPS em primeiro plano para encontrar o menor preço em lojas próximas.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center font-bold">📊</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Otimizador de Carrinho</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Calcula o total das compras e indica a distribuição ideal para pagar menos.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center font-bold">⛽</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Mapa de Combustíveis</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Preços atualizados de gasolina, etanol e diesel em postos de serviço convenientes.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center font-bold">💳</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Descontos e Promoções</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Calendário com ofertas diárias para cartões de crédito e carteiras digitais.</p>
+                </div>
+                <div class="glass-card p-6 rounded-3xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center font-bold">✨</div>
+                    <h3 class="text-lg font-outfit font-bold text-white">Assistente com IA (Gemini)</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">Sugestões de substitutos mais baratos e saudáveis para suas receitas favoritas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer PT -->
+        <footer class="bg-dark text-slate-500 py-16 px-6 border-t border-white/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                    <div>
+                        <h3 class="text-white font-extrabold text-xl mb-3">CompraMás</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed max-w-sm">Comparador inteligente de preços e nutrientes focado em privacidade local-first, desenvolvido por Arandu Labs LLC.</p>
+                    </div>
+                    <div class="flex flex-col md:items-end gap-2.5 text-sm font-semibold">
+                        <span class="text-white text-xs uppercase tracking-widest mb-1">Legal & Suporte</span>
+                        <a href="privacy.html" class="hover:text-white transition-colors">Política de Privacidade</a>
+                        <a href="terms.html" class="hover:text-white transition-colors">Termos e Condições</a>
+                        <a href="faq.html" class="hover:text-white transition-colors">Perguntas Frequentes</a>
+                        <a href="delete-account/" class="hover:text-white transition-colors">Exclusão de Conta e Dados</a>
+                    </div>
+                </div>
+                <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+                    <p>&copy; 2026 Arandu Labs LLC. Todos os direitos reservados.</p>
+                    <p class="text-slate-500">Disponível para Android no Google Play.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Multi-Language Logic matching firmapp-web -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            if (langParam === 'es' || langParam === 'en' || langParam === 'pt') {
+                switchLanguage(langParam);
+            } else {
+                const userLang = (navigator.language || navigator.userLanguage || 'es').toLowerCase();
+                if (userLang.startsWith('pt')) switchLanguage('pt');
+                else if (userLang.startsWith('en')) switchLanguage('en');
+            }
+        });
+
+        function switchLanguage(lang) {
+            const sections = document.querySelectorAll('.lang-section');
+            sections.forEach(sec => sec.classList.add('hidden'));
+            const activeSection = document.getElementById(`lang-${lang}`);
+            if (activeSection) activeSection.classList.remove('hidden');
+
+            ['es', 'en', 'pt'].forEach(l => {
+                const btn = document.getElementById(`btn-${l}`);
+                if (btn) {
+                    if (l === lang) {
+                        btn.className = 'px-2.5 py-1 rounded-full text-xs font-bold transition-all bg-emerald-500 text-dark';
+                    } else {
+                        btn.className = 'px-2.5 py-1 rounded-full text-xs font-bold transition-all text-slate-400 hover:text-white';
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
