@@ -6,7 +6,7 @@
     <title>Política de Privacidad | CompraMás | Arandu Labs</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo.png">
-    <meta name="description" content="Política de Privacidad de la aplicación CompraMás, desarrollada por Arandu Labs LLC. Transparencia total en el uso de cámara, ubicación y datos locales.">
+    <meta name="description" content="Política de Privacidad de la aplicación CompraMás, desarrollada por Arandu Labs LLC. Información detallada sobre servicios de terceros, publicidad, Yandex, Google y protección de datos.">
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
             padding: 7rem 2rem 5rem 2rem;
         }
         .legal-section {
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
         .legal-section h2 {
             font-size: 1.25rem;
@@ -57,7 +57,8 @@
             font-size: 0.975rem;
             line-height: 1.8;
             color: #475569;
-            margin-bottom: 1rem;
+            margin-bottom: 1.15rem;
+            text-align: justify;
         }
         .legal-section ul {
             list-style-type: none;
@@ -67,7 +68,7 @@
         .legal-section li {
             position: relative;
             padding-left: 1.5rem;
-            margin-bottom: 0.65rem;
+            margin-bottom: 0.75rem;
             font-size: 0.95rem;
             line-height: 1.6;
             color: #475569;
@@ -81,10 +82,22 @@
         }
         .highlight-box {
             background-color: #f8fafc;
-            padding: 1.5rem;
+            padding: 1.75rem;
             border-radius: 0.75rem;
             border: 1px solid #e2e8f0;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+        .partner-link {
+            color: #2563eb;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        .partner-link:hover {
+            color: #1d4ed8;
+            text-decoration-color: transparent;
         }
     </style>
 </head>
@@ -109,7 +122,7 @@
                 <a href="faq.html" class="text-xs font-semibold text-slate-500 hover:text-legalPrimary transition-colors">FAQ</a>
                 <a href="delete-account/" class="text-xs font-semibold text-slate-500 hover:text-red-600 transition-colors">Eliminar Cuenta</a>
                 <a href="index.html" class="text-xs font-bold bg-slate-900 text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all">
-                    Ir a la App
+                    Volver a la Web
                 </a>
             </div>
         </div>
@@ -118,105 +131,182 @@
     <!-- Main Legal Content -->
     <main class="legal-container">
         
-        <header class="mb-10 text-center sm:text-left">
-            <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-600">Documento Legal Oficial</span>
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-legalPrimary mt-2 mb-3">Política de Privacidad</h1>
-            <p class="text-sm text-slate-500">Última actualización: 23 de septiembre de 2026 • Arandu Labs LLC</p>
+        <header class="mb-14">
+            <h1 class="text-4xl sm:text-5xl font-black text-legalPrimary mb-4 tracking-tight">Política de Privacidad</h1>
+            <p class="text-legalSecondary text-lg font-light leading-relaxed">
+                Política de privacidad integral para la aplicación <span class="font-bold text-legalPrimary italic">CompraMás</span>.
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-legalSecondary">
+                <span><strong class="text-slate-800">Fecha de Vigencia:</strong> 23 de septiembre de 2026</span>
+                <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+                <span><strong class="text-slate-800">Proveedor:</strong> Arandu Labs LLC</span>
+            </div>
+            <div class="w-20 h-1 bg-emerald-500 mt-6 rounded-full"></div>
         </header>
 
-        <div class="highlight-box">
-            <p class="text-sm font-semibold text-slate-800 mb-1">Resumen de Privacidad de CompraMás:</p>
-            <p class="text-xs text-slate-600 mb-0">
-                CompraMás ha sido diseñada bajo una estricta política de protección de datos personales y arquitectura local (<em>local-first</em>). La app no vende tus datos, no rastrea tus compras personales con propósitos de perfilamiento intrusivo y ejecuta el escaneo de productos y cálculo de distancias directamente en tu dispositivo.
+        <!-- Translation Note -->
+        <div class="highlight-box bg-amber-50/50 border border-amber-200 p-6 rounded-2xl mb-8">
+            <p class="text-xs font-bold text-amber-700 uppercase tracking-widest mb-2 flex items-center gap-2">
+                <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                Nota Legal y Prevalencia
+            </p>
+            <p class="text-xs sm:text-sm leading-relaxed text-slate-600 !mb-0 text-justify">
+                Por tratarse de un documento legal emitido por una entidad legalmente constituida en los Estados Unidos (Arandu Labs LLC), la versión oficial de referencia es la redacción conforme a las leyes estadounidenses y estándares de Google Play. Esta versión en español se proporciona para total transparencia y comprensión del usuario hispanohablante.
             </p>
         </div>
 
-        <section class="legal-section">
-            <h2>1. Identidad del Responsable</h2>
+        <div class="legal-section">
             <p>
-                Esta Política de Privacidad describe cómo <strong>Arandu Labs LLC</strong> ("nosotros", "nuestro" o "la Empresa") recopila, utiliza y protege la información en la aplicación móvil <strong>CompraMás</strong> y en sus sitios web asociados (<a href="https://compramas.arandulabs.dev" class="text-emerald-600 underline font-medium">compramas.arandulabs.dev</a>).
+                Esta Política de Privacidad se aplica a la aplicación móvil <strong>CompraMás</strong> (en adelante denominada "la Aplicación") para dispositivos Android e iOS. La Aplicación fue desarrollada y es operada por <strong>Arandu Labs LLC</strong> (en adelante denominada "el Proveedor de servicios") como un servicio gratuito con soporte publicitario. Este servicio se provee "TAL CUAL".
             </p>
-            <p>
-                Para cualquier consulta referida a este documento, puede contactar a nuestro Delegado de Protección de Datos a través de <a href="mailto:soporte@arandulabs.dev" class="text-emerald-600 underline font-medium">soporte@arandulabs.dev</a>.
-            </p>
-        </section>
+        </div>
 
-        <section class="legal-section">
-            <h2>2. Permisos del Dispositivo y Uso de Datos</h2>
-            <p>CompraMás solicita únicamente los permisos estrictamente necesarios para brindar sus funciones de comparación de precios y análisis nutricional:</p>
-            <ul>
-                <li><strong>Cámara (CAMERA):</strong> Utilizada de manera exclusiva para la lectura y decodificación en tiempo real de códigos de barras (EAN-13, UPC) de productos alimenticios y de consumo masivo. Los fotogramas de la cámara se procesan en la memoria volátil del procesador del dispositivo y <strong>nunca son grabados, transmitidos ni almacenados en servidores externos</strong>.</li>
-                <li><strong>Ubicación Geográfica (ACCESS_FINE_LOCATION / ACCESS_COARSE_LOCATION):</strong> Utilizada para determinar qué supermercados y estaciones de servicio se encuentran dentro del radio cercano al usuario, permitiendo comparar los precios en góndola y calcular la distancia de viaje. La ubicación se consulta en primer plano y no se guarda en ningún registro permanente.</li>
-                <li><strong>Almacenamiento Local (SQLite / Room Database):</strong> Las listas de compras creadas por el usuario, sus productos marcados como favoritos y la base de datos de precios de referencia se conservan en la memoria interna de la aplicación.</li>
-            </ul>
-        </section>
-
-        <section class="legal-section">
-            <h2>3. Fuentes de Información de Productos y Nutrición</h2>
+        <div class="legal-section">
+            <h2>1. Recopilación y Uso de Información</h2>
             <p>
-                Para ofrecer información nutricional completa (Nutri-Score, clasificación NOVA de grado de procesamiento, sellos de advertencia según la Ley de Etiquetado Frontal y Eco-Score), CompraMás consulta bases de datos abiertas como <strong>Open Food Facts</strong> y catálogos colaborativos públicos mediante conexiones seguras y cifradas (HTTPS/TLS).
-            </p>
-            <p>
-                En dichas consultas solo se transmite el identificador numérico del código de barras escaneado, sin asociar ningún identificador personal del usuario.
-            </p>
-        </section>
-
-        <section class="legal-section">
-            <h2>4. Servicios de Terceros y Publicidad</h2>
-            <p>
-                CompraMás puede incluir servicios de terceros orientados al funcionamiento de la infraestructura, telemetría de fallos y soporte publicitario:
+                La Aplicación recopila información técnica, parámetros de telemetría y datos operativos para asegurar el funcionamiento del comparador de precios, el escáner y la entrega de anuncios. Esta información incluye:
             </p>
             <ul>
-                <li><strong>Google Play Services:</strong> Facilita actualizaciones del framework, verificación de integridad y servicios base de Android. (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-emerald-600 underline">Política de Privacidad de Google</a>).</li>
-                <li><strong>Google AdMob:</strong> Puede mostrar publicidad para financiar el servicio gratuito. AdMob puede utilizar identificadores de publicidad anonimizados del sistema operativo conforme a las pautas de Google Play.</li>
-                <li><strong>Firebase Crashlytics:</strong> Registra volcados anónimos de memoria en caso de error o cierre inesperado para permitirnos corregir bugs de manera veloz.</li>
+                <li><strong>Dirección IP del dispositivo:</strong> Empleada para estimación geográfica general (país y ciudad), prevención de fraude, atribución publicitaria y entrega de contenido regionalizado.</li>
+                <li><strong>Identificadores únicos de dispositivo y publicidad:</strong> Identificador de Publicidad de Google (AAID en Android), IDFA en iOS y App Set ID para atribución, limitación de frecuencia de anuncios y métricas analíticas.</li>
+                <li><strong>Información de hardware y sistema operativo:</strong> Modelo de dispositivo, versión de firmware/OS, operador móvil, idioma y tipo de conexión (Wi-Fi/móvil).</li>
+                <li><strong>Métricas de interacción y rendimiento:</strong> Pantallas visitadas, eventos de escaneo de productos, latencia de red y registros anonimizados de fallos del sistema (Crashlytics).</li>
             </ul>
-        </section>
-
-        <section class="legal-section">
-            <h2>5. Almacenamiento, Conservación y Eliminación</h2>
             <p>
-                Debido a nuestra arquitectura descentralizada, tus datos personales de uso residen en tu teléfono. Si deseas eliminar todos los datos almacenados, puedes:
+                <strong>Tratamiento de Permisos Específicos:</strong>
             </p>
             <ul>
-                <li>Borrar los datos de la app desde los Ajustes de Android (<em>Aplicaciones &gt; CompraMás &gt; Almacenamiento &gt; Borrar Datos</em>).</li>
-                <li>Desinstalar la aplicación de tu dispositivo.</li>
-                <li>Visitar nuestra página de solicitud formal en <a href="delete-account/" class="text-emerald-600 underline font-semibold">compramas.arandulabs.dev/delete-account/</a> o escribir a <a href="mailto:soporte@arandulabs.dev" class="text-emerald-600 underline">soporte@arandulabs.dev</a>.</li>
+                <li><strong>Cámara (CAMERA):</strong> Utilizada exclusivamente para el escaneo en tiempo real de códigos de barras (EAN-13, UPC). Los fotogramas se procesan únicamente en la memoria volátil del procesador del dispositivo. <strong>No se capturan, graban ni transfieren imágenes o videos a servidores externos.</strong></li>
+                <li><strong>Ubicación Geográfica (ACCESS_FINE_LOCATION / ACCESS_COARSE_LOCATION):</strong> Utilizada en primer plano para calcular la distancia métrica a supermercados y estaciones de servicio cercanas. La Aplicación <strong>no rastrea la ubicación en segundo plano</strong> ni conserva un historial de trayectorias.</li>
+                <li><strong>Almacenamiento Local (SQLite/Room):</strong> Las listas de compras, carritos optimizados y productos favoritos se guardan localmente en el almacenamiento interno de su propio teléfono.</li>
             </ul>
-        </section>
+        </div>
 
-        <section class="legal-section">
-            <h2>6. Privacidad de Menores</h2>
+        <div class="legal-section">
+            <h2>2. Servicios de Terceros, Redes Publicitarias y Mediación (Yandex y Socios)</h2>
             <p>
-                Nuestros servicios no están dirigidos intencionalmente a menores de 13 años. No recopilamos a sabiendas información de identificación personal de niños. Si detectamos que un menor de 13 años nos ha proporcionado información personal, procederemos a eliminarla inmediatamente.
+                Para mantener el servicio gratuito y cubrir los costos operativos de infraestructura y cálculo, la Aplicación integra kits de desarrollo de software (SDKs), redes publicitarias, herramientas de mediación y servicios analíticos de terceros. Estos proveedores recopilan y procesan datos conforme a sus propias políticas de privacidad independientes:
             </p>
-        </section>
-
-        <section class="legal-section">
-            <h2>7. Cambios en esta Política</h2>
-            <p>
-                Podemos actualizar nuestra Política de Privacidad periódicamente para reflejar mejoras en la aplicación o cambios regulatorios. Le recomendamos revisar esta página regularmente. Las modificaciones entrarán en vigencia a partir de su publicación en esta URL.
-            </p>
-        </section>
-
-        <section class="legal-section">
-            <h2>8. Contacto</h2>
-            <p>Si tiene preguntas o inquietudes respecto a esta política de privacidad o el manejo de datos en CompraMás, no dude en contactarnos:</p>
-            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-sm">
-                <p class="font-bold text-slate-800 mb-1">Arandu Labs LLC</p>
-                <p class="text-slate-600 mb-1">Correo Electrónico: <a href="mailto:soporte@arandulabs.dev" class="text-emerald-600 font-semibold underline">soporte@arandulabs.dev</a></p>
-                <p class="text-slate-600 mb-0">Sitio Web: <a href="https://arandulabs.dev" class="text-emerald-600 font-semibold underline">https://arandulabs.dev</a></p>
+            <div class="highlight-box">
+                <p class="text-sm !mb-5 font-semibold text-legalPrimary">A continuación se detallan los enlaces a las Políticas de Privacidad de los proveedores y redes publicitarias utilizadas:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="partner-link">Google Play Services</a>
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="partner-link">Google AdMob</a>
+                    <a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener noreferrer" class="partner-link">Yandex Mobile Ads & AppMetrica</a>
+                    <a href="https://yandex.com/legal/privacy/" target="_blank" rel="noopener noreferrer" class="partner-link">Yandex Privacy Policy</a>
+                    <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" class="partner-link">Google Analytics for Firebase</a>
+                    <a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer" class="partner-link">Firebase Crashlytics</a>
+                    <a href="https://www.appodeal.com/privacy-policy" target="_blank" rel="noopener noreferrer" class="partner-link">Appodeal Mediation</a>
+                    <a href="https://www.facebook.com/about/privacy/update/printable" target="_blank" rel="noopener noreferrer" class="partner-link">Meta Audience Network</a>
+                    <a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="partner-link">Unity Ads</a>
+                    <a href="https://www.applovin.com/privacy/" target="_blank" rel="noopener noreferrer" class="partner-link">AppLovin</a>
+                    <a href="https://vungle.com/privacy/" target="_blank" rel="noopener noreferrer" class="partner-link">Liftoff / Vungle</a>
+                    <a href="https://www.startapp.com/privacy/" target="_blank" rel="noopener noreferrer" class="partner-link">StartApp</a>
+                    <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer" class="partner-link">Sentry</a>
+                    <a href="https://onesignal.com/privacy_policy" target="_blank" rel="noopener noreferrer" class="partner-link">OneSignal</a>
+                </div>
             </div>
-        </section>
+            <p>
+                <strong>Mención Específica sobre Servicios de Yandex:</strong> La Aplicación puede implementar el SDK de <strong>Yandex Mobile Ads</strong> y/o <strong>Yandex AppMetrica</strong> (operados por Yandex LLC / Yandex Services AG) para la provisión de anuncios publicitarios orientados, medición de rendimiento de campañas y análisis estadístico anonimizado de uso. Yandex puede procesar identificadores publicitarios, datos de red, modelo de dispositivo y telemetría de interacción conforme a su política en <a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener noreferrer" class="partner-link">yandex.com/legal/confidential/</a>.
+            </p>
+            <p>El Proveedor de servicios puede divulgar información recopilada automáticamente:</p>
+            <ul>
+                <li>Según lo exija la ley, como para cumplir con una citación judicial, orden oficial o proceso legal similar;</li>
+                <li>Cuando crea de buena fe que la divulgación es necesaria para proteger sus derechos, salvaguardar la seguridad de los usuarios, investigar fraude o responder a una solicitud gubernamental;</li>
+                <li>Con proveedores de servicios de confianza que operan en su nombre, no realizan un uso independiente de los datos y han suscrito acuerdos para garantizar estrictos niveles de confidencialidad y seguridad.</li>
+            </ul>
+        </div>
+
+        <div class="legal-section">
+            <h2>3. Publicidad, Cookies y Tecnologías de Seguimiento</h2>
+            <p>
+                La Aplicación utiliza empresas de publicidad y redes de mediación para desplegar anuncios en pantalla.
+            </p>
+            <div class="highlight-box">
+                <p class="text-sm !mb-3 font-medium text-legalPrimary">
+                    <strong>Aviso sobre Identificadores, Almacenamiento Local y Telemetría IP:</strong> Terceros asociados (incluyendo Google, Yandex y socios de mediación programática) pueden acceder a identificadores de publicidad, emplear almacenamiento local en caché y registrar direcciones IP para la entrega, auditoría y medición de anuncios.
+                </p>
+                <p class="text-sm !mb-0 text-slate-600">
+                    Para conocer cómo Google utiliza los datos de aplicaciones socias, consulte: <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" class="partner-link">Cómo utiliza Google la información de sitios o apps asociadas</a>.
+                </p>
+            </div>
+            <p>
+                <strong>Marco TCF de IAB Europa (Característica 3):</strong> Para los usuarios en el Espacio Económico Europeo (EEE), el Reino Unido y Suiza, las direcciones IP transmitidas automáticamente son utilizadas por Google, Yandex y socios adheridos para entrega de anuncios, prevención de fraude y atribución técnica bajo la <em>Característica 3 (Identificar dispositivos basados en información transmitida automáticamente)</em> del Marco de Transparencia y Consentimiento (TCF).
+            </p>
+            <p>
+                <strong>Gestión de Consentimiento (CMP / UMP SDK):</strong> Los usuarios pueden modificar o revocar su consentimiento publicitario en cualquier momento desde los ajustes de la aplicación a través de la Plataforma de Mensajería del Usuario (UMP SDK), o inhabilitando la personalización de anuncios en los ajustes de su sistema operativo (Ajustes de Google &gt; Anuncios &gt; Borrar ID de Publicidad).
+            </p>
+            <p>
+                <strong>Leyes de Privacidad de EE. UU. (CPRA, VCDPA):</strong> Arandu Labs LLC no vende datos personales a cambio de compensación económica. El intercambio técnico de identificadores con redes como Google o Yandex con fines de publicidad contextual o personalizada se gestiona respetando las señales de Privacidad Global (GPC) y las solicitudes de exclusión (opt-out).
+            </p>
+            <p>
+                <strong>Restricción sobre Información Sensible:</strong> El Proveedor de servicios no emplea categorías sensibles (salud, origen étnico, creencias religiosas, afiliación política u orientación sexual) para orientar publicidad personalizada.
+            </p>
+        </div>
+
+        <div class="legal-section">
+            <h2>4. Derechos de Exclusión Voluntaria (Opt-Out)</h2>
+            <p>
+                Usted puede cesar toda recopilación de información desinstalando la Aplicación a través del procedimiento estándar de su dispositivo móvil. Asimismo, puede restablecer o eliminar su identificador de publicidad directamente en la configuración de su teléfono.
+            </p>
+        </div>
+
+        <div class="legal-section">
+            <h2>5. Política de Retención y Eliminación de Datos</h2>
+            <p>
+                El Proveedor de servicios conservará los datos de uso y telemetría mientras usted utilice la Aplicación y durante un período razonable posterior. Dado que la mayor parte de la información (listas, productos escaneados y preferencias) reside localmente en su teléfono, se purga automáticamente al borrar los datos de la app o desinstalarla.
+            </p>
+            <p>
+                Para solicitar la purga de cualquier registro o telemetría asociada a su dispositivo, puede utilizar nuestro portal en <a href="delete-account/" class="partner-link font-bold">compramas.arandulabs.dev/delete-account/</a> o enviar un correo a <a href="mailto:soporte@arandulabs.dev" class="partner-link font-bold">soporte@arandulabs.dev</a>.
+            </p>
+        </div>
+
+        <div class="legal-section">
+            <h2>6. Privacidad de Menores (COPPA)</h2>
+            <p>
+                La Aplicación no está dirigida a menores de 13 años. El Proveedor de servicios no recopila deliberadamente información de identificación personal de niños menores de 13 años. Si descubrimos que un menor de 13 años nos ha proporcionado información personal, procederemos a su eliminación inmediata. Si usted es padre o tutor y tiene conocimiento de dicha situación, contáctenos en <a href="mailto:soporte@arandulabs.dev" class="partner-link font-bold">soporte@arandulabs.dev</a>.
+            </p>
+        </div>
+
+        <div class="legal-section">
+            <h2>7. Seguridad de la Información</h2>
+            <p>
+                Arandu Labs LLC implementa salvaguardas técnicas, administrativas y físicas rigurosas para proteger la confidencialidad e integridad de la información tratada, utilizando canales cifrados HTTPS/TLS en todas las comunicaciones externas.
+            </p>
+        </div>
+
+        <div class="legal-section">
+            <h2>8. Cambios a esta Política</h2>
+            <p>
+                Esta Política de Privacidad puede ser actualizada periódicamente para reflejar mejoras operativas o exigencias legales. Notificaremos cualquier modificación publicando la nueva versión en esta página. Se recomienda consultar esta política con frecuencia, ya que el uso continuado de la Aplicación implica la aceptación de los cambios.
+            </p>
+        </div>
+
+        <div class="legal-section">
+            <h2>9. Consentimiento</h2>
+            <p>
+                Al utilizar la Aplicación, usted presta su consentimiento al procesamiento de su información en los términos establecidos en la presente Política de Privacidad.
+            </p>
+        </div>
+
+        <div class="legal-section">
+            <h2>10. Contacto</h2>
+            <p>Si tiene preguntas sobre las prácticas de privacidad o sobre esta política, comuníquese con el Proveedor de servicios por correo electrónico a:</p>
+            <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 text-sm">
+                <p class="font-bold text-slate-800 mb-1">Arandu Labs LLC</p>
+                <p class="text-slate-600 mb-1">Atención de Privacidad: <a href="mailto:soporte@arandulabs.dev" class="partner-link font-semibold">soporte@arandulabs.dev</a></p>
+                <p class="text-slate-600 mb-0">Sitio Web: <a href="https://arandulabs.dev" class="partner-link font-semibold">https://arandulabs.dev</a></p>
+            </div>
+        </div>
 
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-200 bg-slate-50 py-8 px-6 text-center text-xs text-slate-500">
+    <footer class="border-t border-slate-200 bg-slate-50 py-10 px-6 text-center text-xs text-slate-500">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-2">
                 <img src="assets/arandulabs_logo.png" alt="Arandu Labs" class="w-5 h-5 object-contain">
-                <span>© 2026 Arandu Labs LLC. Todos los derechos reservados.</span>
+                <span>© 2026 Arandu Labs LLC. Construido con integridad y privacidad.</span>
             </div>
             <div class="flex flex-wrap gap-4">
                 <a href="terms.html" class="hover:text-slate-800 transition-colors">Términos de Servicio</a>
