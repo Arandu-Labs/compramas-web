@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes (FAQ) | CompraMás | Arandu Labs</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <meta name="description" content="Preguntas frecuentes sobre CompraMás: cómo funciona el comparador de supermercados, escaneo nutricional, mapa de combustibles, promociones y privacidad.">
+    
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0b',
+                        darkCard: '#111827',
+                        brandGreen: '#10b981',
+                        brandCyan: '#06b6d4',
+                        brandBlue: '#3b82f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #0a0a0b;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-brand {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%);
+        }
+        .glow-blob {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between relative">
+
+    <!-- Ambient Blobs -->
+    <div class="glow-blob top-0 -left-20 bg-emerald-500"></div>
+    <div class="glow-blob top-1/2 -right-20 bg-cyan-500"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed w-full top-0 left-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="assets/logo.png" alt="CompraMás Logo" class="w-10 h-10 object-contain rounded-xl drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-outfit font-black tracking-tight text-white group-hover:text-brandCyan transition-colors">CompraMás</span>
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-brandGreen font-bold">by Arandu Labs</span>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-300">
+                <a href="index.html#features" class="hover:text-white transition-colors">Funcionalidades</a>
+                <a href="index.html#how-it-works" class="hover:text-white transition-colors">Cómo Funciona</a>
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacidad</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Términos</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="https://arandulabs.dev" class="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 hover:border-emerald-500/40 text-white font-bold rounded-xl transition-all text-xs">
+                    <img src="assets/arandulabs_logo.png" alt="Arandu Labs" class="w-4 h-4 object-contain">
+                    <span class="hidden sm:inline">Arandu Labs</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 pt-36 pb-24 z-10 w-full flex-grow">
+        
+        <!-- Header Section -->
+        <div class="text-center space-y-4 mb-14">
+            <span class="text-brandGreen font-bold tracking-[0.2em] text-xs uppercase inline-block bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                Centro de Ayuda y Soporte
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-outfit font-black tracking-tight text-white">
+                Preguntas <span class="text-gradient">Frecuentes</span>
+            </h1>
+            <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+                Todo lo que necesitas saber sobre el uso de CompraMás, fuentes de datos, escáner nutricional, ahorro en combustible y privacidad.
+            </p>
+        </div>
+
+        <!-- FAQ Accordion List -->
+        <div class="space-y-4">
+
+            <!-- Item 1 -->
+            <details class="glass rounded-2xl border border-white/10 p-5 group transition-all duration-200 open:border-emerald-500/40">
+                <summary class="flex justify-between items-center cursor-pointer font-outfit font-bold text-white text-base sm:text-lg">
+                    <span>¿Qué es CompraMás y qué ventajas ofrece?</span>
+                    <span class="text-emerald-400 text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div class="mt-4 pt-4 border-t border-white/5 text-slate-300 text-sm leading-relaxed space-y-2">
+                    <p>CompraMás es un asistente integral para compras inteligentes y ahorro cotidiano. Combina un comparador de precios de supermercados geolocalizado en tiempo real, un escáner de códigos de barra con análisis nutricional (Nutri-Score, NOVA, Sellos de advertencia), un optimizador de changuito para repartir compras de forma óptima, un mapa de precios de combustibles y un directorio de promociones bancarias.</p>
+                </div>
+            </details>
+
+            <!-- Item 2 -->
+            <details class="glass rounded-2xl border border-white/10 p-5 group transition-all duration-200 open:border-emerald-500/40">
+                <summary class="flex justify-between items-center cursor-pointer font-outfit font-bold text-white text-base sm:text-lg">
+                    <span>¿Cómo funciona el escaneo de productos y de dónde proviene la información?</span>
+                    <span class="text-emerald-400 text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div class="mt-4 pt-4 border-t border-white/5 text-slate-300 text-sm leading-relaxed space-y-2">
+                    <p>Al apuntar la cámara al código de barras (EAN-13 / UPC) de cualquier producto de supermercado, la app consulta repositorios colaborativos abiertos como <strong>Open Food Facts</strong> y catálogos de referencia.</p>
+                    <p>Inmediatamente obtienes los ingredientes, tabla nutricional, grado de procesamiento industrial (sistema NOVA 1 al 4), el índice de calidad Nutri-Score (A a E) y las advertencias correspondientes a la Ley de Etiquetado Frontal (Exceso en Azúcares, Grasas Totales, Sodio, Calorías).</p>
+                </div>
+            </details>
+
+            <!-- Item 3 -->
+            <details class="glass rounded-2xl border border-white/10 p-5 group transition-all duration-200 open:border-emerald-500/40">
+                <summary class="flex justify-between items-center cursor-pointer font-outfit font-bold text-white text-base sm:text-lg">
+                    <span>¿Cómo compara los precios de los supermercados?</span>
+                    <span class="text-emerald-400 text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div class="mt-4 pt-4 border-t border-white/5 text-slate-300 text-sm leading-relaxed space-y-2">
+                    <p>Utilizando tu ubicación geográfica en primer plano, CompraMás calcula la distancia física hacia las sucursales de supermercados más cercanas (Coto, Carrefour, Día, ChangoMás, Jumbo, Disco, etc.) y coteja los precios de referencia para el producto escaneado, ordenándolos desde la alternativa más económica hasta la más costosa.</p>
+                </div>
+            </details>
+
+            <!-- Item 4 -->
+            <details class="glass rounded-2xl border border-white/10 p-5 group transition-all duration-200 open:border-emerald-500/40">
+                <summary class="flex justify-between items-center cursor-pointer font-outfit font-bold text-white text-base sm:text-lg">
+                    <span>¿Qué hace el Optimizador de Changuito / Lista de Compras?</span>
+                    <span class="text-emerald-400 text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div class="mt-4 pt-4 border-t border-white/5 text-slate-300 text-sm leading-relaxed space-y-2">
+                    <p>A diferencia de una simple lista de notas, el Optimizador de CompraMás calcula el costo consolidado de tu carrito en cada cadena y te sugiere una estrategia de compra: comprar todo en un único comercio más conveniente o dividir la compra entre dos comercios cercanos para maximizar el ahorro porcentual.</p>
+                </div>
+            </details>
+
+            <!-- Item 5 -->
+            <details class="glass rounded-2xl border border-white/10 p-5 group transition-all duration-200 open:border-emerald-500/40">
+                <summary class="flex justify-between items-center cursor-pointer font-outfit font-bold text-white text-base sm:text-lg">
+                    <span>¿Cómo funciona el mapa de combustibles y estaciones de servicio?</span>
+                    <span class="text-emerald-400 text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div class="mt-4 pt-4 border-t border-white/5 text-slate-300 text-sm leading-relaxed space-y-2">
+                    <p>El módulo de combustible mapea las estaciones de servicio próximas a tu ubicación (YPF, Shell, Axion, Puma) y visualiza las cotizaciones vigentes de Nafta Súper, Nafta Premium, Gasoil y GNC para que decidas dónde cargar al menor precio antes de salir.</p>
+                </div>
+            </details>
+
+            <!-- Item 6 -->
+            <details class="glass rounded-2xl border border-white/10 p-5 group transition-all duration-200 open:border-emerald-500/40">
+                <summary class="flex justify-between items-center cursor-pointer font-outfit font-bold text-white text-base sm:text-lg">
+                    <span>¿Qué tipo de descuentos y promociones incluye?</span>
+                    <span class="text-emerald-400 text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div class="mt-4 pt-4 border-t border-white/5 text-slate-300 text-sm leading-relaxed space-y-2">
+                    <p>La sección de Descuentos organiza las ofertas vigentes por día de la semana y por medio de pago: promociones de bancos (Banco Nación, Banco Provincia, Santander, Galicia, BBVA, etc.) y billeteras virtuales (Cuenta DNI, BNA+, MODO, Mercado Pago), indicando porcentajes de reintegro y topes aplicables.</p>
+                </div>
+            </details>
+
+            <!-- Item 7 -->
+            <details class="glass rounded-2xl border border-white/10 p-5 group transition-all duration-200 open:border-emerald-500/40">
+                <summary class="flex justify-between items-center cursor-pointer font-outfit font-bold text-white text-base sm:text-lg">
+                    <span>¿CompraMás recopila o vende mis datos personales?</span>
+                    <span class="text-emerald-400 text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div class="mt-4 pt-4 border-t border-white/5 text-slate-300 text-sm leading-relaxed space-y-2">
+                    <p><strong>Rotundamente no.</strong> Como todos los desarrollos de Arandu Labs LLC, CompraMás está estructurada con una política <em>local-first</em>. Tus listas, preferencias y productos escaneados residen en la base de datos interna de tu dispositivo. No rastreamos tus compras para perfilamiento comercial ni transmitimos las imágenes captadas por tu cámara.</p>
+                </div>
+            </details>
+
+            <!-- Item 8 -->
+            <details class="glass rounded-2xl border border-white/10 p-5 group transition-all duration-200 open:border-emerald-500/40">
+                <summary class="flex justify-between items-center cursor-pointer font-outfit font-bold text-white text-base sm:text-lg">
+                    <span>¿Cómo solicito la eliminación de mi cuenta o el borrado de mis datos?</span>
+                    <span class="text-emerald-400 text-xl font-light group-open:rotate-45 transition-transform duration-200">+</span>
+                </summary>
+                <div class="mt-4 pt-4 border-t border-white/5 text-slate-300 text-sm leading-relaxed space-y-2">
+                    <p>Puedes borrar todos los datos locales desde la configuración de la app o desinstalándola de tu dispositivo. También dispones de nuestra página oficial de solicitud en <a href="delete-account/" class="text-emerald-400 underline font-semibold">compramas.arandulabs.dev/delete-account/</a> o escribiendo a <a href="mailto:soporte@arandulabs.dev" class="text-emerald-400 underline">soporte@arandulabs.dev</a>.</p>
+                </div>
+            </details>
+
+        </div>
+
+        <!-- Contact Box -->
+        <div class="mt-14 glass p-8 rounded-2xl border border-white/10 text-center space-y-3">
+            <h3 class="text-xl font-bold text-white">¿Tienes otra consulta?</h3>
+            <p class="text-sm text-slate-400 max-w-md mx-auto">
+                Nuestro equipo de desarrollo y soporte técnico está listo para ayudarte con cualquier duda o sugerencia sobre CompraMás.
+            </p>
+            <div class="pt-2">
+                <a href="mailto:soporte@arandulabs.dev?subject=Consulta%20CompraMás" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-brand text-dark font-extrabold rounded-xl text-sm hover:opacity-90 transition-opacity shadow-lg shadow-emerald-500/20">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    Contactar a soporte@arandulabs.dev
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-dark py-8 px-6 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <img src="assets/arandulabs_logo.png" alt="Arandu Labs" class="w-5 h-5 object-contain">
+                <span>© 2026 Arandu Labs LLC. Todos los derechos reservados.</span>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="privacy.html" class="hover:text-slate-300 transition-colors">Privacidad</a>
+                <a href="terms.html" class="hover:text-slate-300 transition-colors">Términos</a>
+                <a href="delete-account/" class="hover:text-slate-300 transition-colors">Eliminar Cuenta</a>
+                <a href="https://arandulabs.dev" class="hover:text-brandCyan transition-colors font-medium">arandulabs.dev</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

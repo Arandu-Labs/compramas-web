@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminación de Cuenta y Datos | CompraMás | Arandu Labs</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <meta name="description" content="Solicitud de eliminación de cuenta y purga de datos para la aplicación CompraMás de Arandu Labs LLC. Cumplimiento de políticas de Google Play.">
+    
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0b',
+                        darkCard: '#111827',
+                        brandGreen: '#10b981',
+                        brandCyan: '#06b6d4',
+                        brandBlue: '#3b82f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #0a0a0b;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-brand {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%);
+        }
+        .glow-blob {
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between relative">
+
+    <!-- Ambient Glowing Blobs -->
+    <div class="glow-blob top-10 -left-20 bg-emerald-500"></div>
+    <div class="glow-blob bottom-20 -right-20 bg-cyan-500"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed w-full top-0 left-0 z-50 border-b border-white/5 bg-dark/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../assets/logo.png" alt="CompraMás Logo" class="w-10 h-10 object-contain rounded-xl drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-outfit font-black tracking-tight text-white group-hover:text-brandCyan transition-colors">CompraMás</span>
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-brandGreen font-bold">by Arandu Labs</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Language Switcher & Home link -->
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 p-1 rounded-full">
+                    <button id="btn-es" onclick="switchLanguage('es')" class="px-3 py-1 rounded-full text-xs font-bold transition-all bg-emerald-500 text-dark">
+                        ES
+                    </button>
+                    <button id="btn-en" onclick="switchLanguage('en')" class="px-3 py-1 rounded-full text-xs font-bold transition-all text-slate-400 hover:text-white">
+                        EN
+                    </button>
+                </div>
+                <a href="../index.html" class="hidden sm:inline-flex text-xs font-semibold text-slate-300 hover:text-white border border-white/10 bg-white/5 px-3 py-1.5 rounded-lg transition-all">
+                    Volver al Inicio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-4xl mx-auto px-6 pt-32 pb-20 z-10 w-full flex-grow">
+        
+        <!-- ==================== SPANISH SECTION ==================== -->
+        <section id="lang-es" class="space-y-10">
+            <!-- Header Title -->
+            <div class="space-y-3">
+                <span class="text-brandGreen font-bold tracking-[0.2em] text-xs uppercase block">Cumplimiento Google Play & Privacidad</span>
+                <h1 class="text-3xl sm:text-5xl font-outfit font-black tracking-tight leading-tight text-white">
+                    Eliminación de Cuenta y Datos
+                </h1>
+                <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                    Procedimiento oficial de revocación de permisos y eliminación definitiva de cuenta para la aplicación <strong class="text-white">CompraMás</strong>, desarrollada por <strong class="text-white">Arandu Labs LLC</strong>.
+                </p>
+                <div class="w-16 h-1 bg-gradient-brand rounded-full mt-2"></div>
+            </div>
+
+            <!-- Play Store Notice Box -->
+            <div class="glass p-6 rounded-2xl border border-emerald-500/30 space-y-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    Aviso de Transparencia y Privacidad
+                </h3>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                    <strong>CompraMás</strong> está construida bajo una filosofía <em>local-first</em>. La mayor parte de tus datos (listas de compras, favoritos, historial de escaneo de productos) se almacena de forma segura en la base de datos local de tu propio dispositivo. Puedes eliminarlos desinstalando la app o solicitando la baja formal de cualquier registro a través del siguiente procedimiento.
+                </p>
+            </div>
+
+            <!-- Steps -->
+            <div class="space-y-6">
+                <h2 class="text-2xl font-outfit font-bold text-white">¿Cómo solicitar la eliminación?</h2>
+                <div class="grid md:grid-cols-3 gap-5">
+                    <div class="glass p-5 rounded-xl space-y-2 border-white/5">
+                        <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-base">1</div>
+                        <h4 class="font-bold text-white text-sm">Desde la App</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Dirígete a <em>Ajustes &gt; Datos y Almacenamiento &gt; Borrar datos locales</em> para purgar inmediatamente todo registro.</p>
+                    </div>
+                    <div class="glass p-5 rounded-xl space-y-2 border-white/5">
+                        <div class="w-9 h-9 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-base">2</div>
+                        <h4 class="font-bold text-white text-sm">Vía Correo Directo</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Escríbenos a <a href="mailto:soporte@arandulabs.dev" class="text-brandCyan font-semibold underline">soporte@arandulabs.dev</a> indicando en el asunto "Baja CompraMás".</p>
+                    </div>
+                    <div class="glass p-5 rounded-xl space-y-2 border-white/5">
+                        <div class="w-9 h-9 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-base">3</div>
+                        <h4 class="font-bold text-white text-sm">Confirmación Rápida</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">El equipo técnico procesa y confirma la baja definitiva en un plazo máximo de 72 horas hábiles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="space-y-4">
+                <h2 class="text-2xl font-outfit font-bold text-white">Tipos de datos y política de retención</h2>
+                <div class="overflow-x-auto rounded-xl border border-white/10 glass">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-white/5 text-slate-300 font-bold border-b border-white/10">
+                                <th class="p-3.5">Categoría de Datos</th>
+                                <th class="p-3.5">Destino / Acción</th>
+                                <th class="p-3.5">Plazo de Retención</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5 text-slate-400 text-xs sm:text-sm">
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Listas de compras y favoritos</td>
+                                <td class="p-3.5">Almacenados en SQLite/Room local en el dispositivo.</td>
+                                <td class="p-3.5">Inmediato tras borrar datos o desinstalar la app.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Permiso de Cámara (Escáner de código de barras)</td>
+                                <td class="p-3.5">Las imágenes se procesan en la memoria volátil del dispositivo y nunca se transmiten ni almacenan en servidores.</td>
+                                <td class="p-3.5">0 segundos (No se almacena).</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Ubicación GPS (Supermercados cercanos)</td>
+                                <td class="p-3.5">Utilizado únicamente en tiempo real para calcular distancia y filtrar góndolas.</td>
+                                <td class="p-3.5">No se almacena en base de datos externa.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Telemetría de errores y caídas (Crashlytics)</td>
+                                <td class="p-3.5">Informes de errores totalmente anonimizados para estabilidad de software.</td>
+                                <td class="p-3.5">Máximo 90 días según políticas de Google Play Services.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Contact / Deletion Request Box -->
+            <div class="glass p-6 sm:p-8 rounded-2xl border border-white/10 space-y-4">
+                <h3 class="text-xl font-bold text-white">Enviar Solicitud al Soporte de Arandu Labs</h3>
+                <p class="text-xs sm:text-sm text-slate-300">
+                    Puedes solicitar la purga de cualquier registro o realizar consultas sobre privacidad completando el siguiente acceso:
+                </p>
+                <div class="pt-2">
+                    <a href="mailto:soporte@arandulabs.dev?subject=Solicitud%20de%20Eliminación%20de%20Cuenta%20-%20CompraMás&body=Hola%20equipo%20de%20Arandu%20Labs,%0A%0ASolicito%20la%20eliminación%20de%20mis%20datos%20y%20cuenta%20asociados%20a%20CompraMás.%0A%0AIdentificador%20o%20Correo:%20%0AMotivo%20(opcional):%20" 
+                       class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-brand text-dark font-extrabold rounded-xl text-sm hover:opacity-95 transition-opacity shadow-lg shadow-emerald-500/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Redactar Solicitud a soporte@arandulabs.dev
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ENGLISH SECTION ==================== -->
+        <section id="lang-en" class="hidden space-y-10">
+            <!-- Header Title -->
+            <div class="space-y-3">
+                <span class="text-brandGreen font-bold tracking-[0.2em] text-xs uppercase block">Google Play Compliance & Privacy</span>
+                <h1 class="text-3xl sm:text-5xl font-outfit font-black tracking-tight leading-tight text-white">
+                    Account and Data Deletion
+                </h1>
+                <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                    Official procedure to request account deletion and data purge for the <strong class="text-white">CompraMás</strong> application, developed by <strong class="text-white">Arandu Labs LLC</strong>.
+                </p>
+                <div class="w-16 h-1 bg-gradient-brand rounded-full mt-2"></div>
+            </div>
+
+            <!-- Play Store Notice Box -->
+            <div class="glass p-6 rounded-2xl border border-emerald-500/30 space-y-3">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    Privacy First & Local Storage
+                </h3>
+                <p class="text-sm text-slate-300 leading-relaxed">
+                    <strong>CompraMás</strong> is designed with a <em>local-first</em> architecture. Most of your shopping lists, favorites, and product scan history are stored locally on your device. You can purge them at any time by uninstalling the application or by requesting manual deletion using the methods below.
+                </p>
+            </div>
+
+            <!-- Steps -->
+            <div class="space-y-6">
+                <h2 class="text-2xl font-outfit font-bold text-white">How to request deletion?</h2>
+                <div class="grid md:grid-cols-3 gap-5">
+                    <div class="glass p-5 rounded-xl space-y-2 border-white/5">
+                        <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-base">1</div>
+                        <h4 class="font-bold text-white text-sm">In-App Reset</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Go to <em>Settings &gt; Storage & Data &gt; Clear Local Data</em> to wipe all local records instantly.</p>
+                    </div>
+                    <div class="glass p-5 rounded-xl space-y-2 border-white/5">
+                        <div class="w-9 h-9 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-base">2</div>
+                        <h4 class="font-bold text-white text-sm">Direct Email</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Send an email to <a href="mailto:soporte@arandulabs.dev" class="text-brandCyan font-semibold underline">soporte@arandulabs.dev</a> with "CompraMás Deletion" in the subject.</p>
+                    </div>
+                    <div class="glass p-5 rounded-xl space-y-2 border-white/5">
+                        <div class="w-9 h-9 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-base">3</div>
+                        <h4 class="font-bold text-white text-sm">Prompt Processing</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">Our technical support team will process and confirm complete deletion within 72 hours.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="space-y-4">
+                <h2 class="text-2xl font-outfit font-bold text-white">Data Retention Policy</h2>
+                <div class="overflow-x-auto rounded-xl border border-white/10 glass">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-white/5 text-slate-300 font-bold border-b border-white/10">
+                                <th class="p-3.5">Data Category</th>
+                                <th class="p-3.5">Action & Storage</th>
+                                <th class="p-3.5">Retention Period</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5 text-slate-400 text-xs sm:text-sm">
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Shopping lists and favorites</td>
+                                <td class="p-3.5">Stored in local SQLite/Room database on device.</td>
+                                <td class="p-3.5">Deleted immediately upon clearing app data or uninstall.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Camera Permission (Barcode Scanning)</td>
+                                <td class="p-3.5">Frames processed strictly in device memory. Never uploaded or recorded.</td>
+                                <td class="p-3.5">Zero retention (0 seconds).</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">GPS Location (Nearby Supermarkets)</td>
+                                <td class="p-3.5">Used strictly in real-time to compute distance.</td>
+                                <td class="p-3.5">Not retained on external servers.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3.5 font-bold text-white">Anonymized Crash Logs (Crashlytics)</td>
+                                <td class="p-3.5">Used only to fix crashes and maintain stability.</td>
+                                <td class="p-3.5">Up to 90 days per Google Play standard policy.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Email button -->
+            <div class="glass p-6 sm:p-8 rounded-2xl border border-white/10 space-y-4">
+                <h3 class="text-xl font-bold text-white">Submit Deletion Request</h3>
+                <p class="text-xs sm:text-sm text-slate-300">
+                    To send an automated deletion inquiry to our team, click the button below:
+                </p>
+                <div class="pt-2">
+                    <a href="mailto:soporte@arandulabs.dev?subject=Account%20Deletion%20Request%20-%20CompraMás&body=Hello%20Arandu%20Labs%20Team,%0A%0APlease%20delete%20all%20data%20associated%20with%20my%20use%20of%20CompraMás.%0A%0AUser%20Email/ID:%20" 
+                       class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-brand text-dark font-extrabold rounded-xl text-sm hover:opacity-95 transition-opacity shadow-lg shadow-emerald-500/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Email support at soporte@arandulabs.dev
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-dark py-8 px-6 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <img src="../assets/arandulabs_logo.png" alt="Arandu Labs" class="w-5 h-5 object-contain">
+                <span>© 2026 Arandu Labs LLC. Todos los derechos reservados.</span>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="../privacy.html" class="hover:text-slate-300 transition-colors">Privacidad</a>
+                <a href="../terms.html" class="hover:text-slate-300 transition-colors">Términos</a>
+                <a href="../faq.html" class="hover:text-slate-300 transition-colors">Preguntas Frecuentes</a>
+                <a href="https://arandulabs.dev" class="hover:text-brandCyan transition-colors">arandulabs.dev</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Language Switch Script -->
+    <script>
+        function switchLanguage(lang) {
+            const esSec = document.getElementById('lang-es');
+            const enSec = document.getElementById('lang-en');
+            const btnEs = document.getElementById('btn-es');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'es') {
+                esSec.classList.remove('hidden');
+                enSec.classList.add('hidden');
+                btnEs.className = 'px-3 py-1 rounded-full text-xs font-bold transition-all bg-emerald-500 text-dark';
+                btnEn.className = 'px-3 py-1 rounded-full text-xs font-bold transition-all text-slate-400 hover:text-white';
+            } else {
+                enSec.classList.remove('hidden');
+                esSec.classList.add('hidden');
+                btnEn.className = 'px-3 py-1 rounded-full text-xs font-bold transition-all bg-emerald-500 text-dark';
+                btnEs.className = 'px-3 py-1 rounded-full text-xs font-bold transition-all text-slate-400 hover:text-white';
+            }
+        }
+    </script>
+</body>
+</html>
